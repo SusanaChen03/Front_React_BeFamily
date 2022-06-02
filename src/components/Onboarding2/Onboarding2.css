@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+.body{
+    font-family: 'Sora', sans-serif;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: #D75022;
+}
+
+h3{
+    color: #F6AC3A;
+}
+
+.middle, .buttom, .center{
+    display: flex;
+    justify-content: center;
+}
