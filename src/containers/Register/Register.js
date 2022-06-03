@@ -28,6 +28,7 @@ const Register = () => {
         <input type="password" id="password" name="password" />
 
         <input type="submit" value="CONTINUAR" className="sendButton"/>
+        <a>Ya tengo cuenta</a>
       </form>
     </div>
   );
