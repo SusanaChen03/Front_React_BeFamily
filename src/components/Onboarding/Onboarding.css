@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 
 .container{
     display: flex;
@@ -6,10 +7,22 @@
     min-height: 100vh;
 }
 
+.appLogo{
+    size: 50px;
+    margin-top: 140px;
+    padding-right: 100px;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+}
+
 .p1{
     font-family: 'Fredericka the Great', cursive;
     color: #292956;
     font-size: 25px;
+    margin-top: 50px;
 }
 
 .p2{
@@ -25,22 +38,47 @@
 }
 
 .p4{
+    margin-top: 100px;
     font-family: 'Sora', sans-serif;
     color: #D75022;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .right{
     padding-top: 150px;
 }
 
-input{
+.discover{
     font-size: 20px;
-    width: 168px;   
+    width: 350px;   
     height: 52px;
     color: #fff;
     background-color: #0FB8A6 ;
     border-color: #0FB8A6;
     border-radius: 20px;
-    margin-left: 110px
+    margin: auto;
+}
+
+.body{
+    font-family: 'Sora', sans-serif;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: #D75022;
+}
+
+h3{
+    color: #F6AC3A;
+}
+
+.middle, .buttom, .center{
+    display: flex;
+    justify-content: center;
 }
