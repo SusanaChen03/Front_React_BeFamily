@@ -46,7 +46,7 @@ const Onboarding = () => {
           <h3>Levantarte por las mañanas lleno de energía y alegría</h3>
           <img src={icon4} alt="iconboom" />
         </div>
-        <input className="discover" type="button" value="Descúbrelo" />
+        <input className="discover" type="button" value="Descúbrelo"/>
       </div>
       
     </div>
