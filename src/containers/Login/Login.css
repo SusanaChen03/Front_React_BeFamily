@@ -27,3 +27,11 @@ input{
     background-color: #F2F2F7;
     border-color: #F2F2F7;
 }
+
+.sendButton{
+    width: 168px;
+    height: 42px;
+    color: #ffffff;
+    background-color: #0FB8A6;
+    margin-top: 50px;
+}
