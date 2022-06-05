@@ -39,10 +39,10 @@ const Header = () => {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                > Dropdown </a>
+                > Ajustes </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Mi Perfil</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="#">Another action</a>
