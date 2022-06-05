@@ -56,17 +56,7 @@ const CreateChallenge = () => {
                 <p>Acuario Atlantis</p>
               </div>
             </div>
-
-            <label htmlFor="writeYou">Escribe uno tú</label>
-
-            <input
-              type="text"
-              id="reward"
-              name="reward"
-              placeholder="opcional"
-            ></input>
           </div>
-
           <input type="submit" value="CREAR RETO" className="sendButton" />
         </form>
       </div>
