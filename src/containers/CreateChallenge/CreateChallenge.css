@@ -22,3 +22,21 @@ label{
 .repeat{
     display:block
 }
+
+.selectReward{
+    display: flex;
+    justify-content: center;
+}
+
+.selected{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.writeYou{
+    display: flex;
+    
+}
