@@ -37,7 +37,6 @@ const Login = () => {
 
   return (
     <div>
-      <Header />
       <div className="loginContainer">
         <h1>BIENVENIDOS!</h1>
 
