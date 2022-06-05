@@ -1,0 +1,24 @@
+h1{
+    color: #D75022;
+}
+
+label{
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+.names{
+    display: block;
+    width: 320px;
+    height: 35px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background-color: #F2F2F7;
+    border-color: #F2F2F7;
+}
+
+.repeat{
+    display:block
+}

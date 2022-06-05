@@ -10,13 +10,14 @@ import Register from './containers/Register/Register';
 import Header from './components/Header/Header';
 import Login from './containers/Login/Login';
 import RegisterMember from './containers/RegisterMember/RegisterMember';
+import CreateChallenge from './containers/CreateChallenge/CreateChallenge';
 
 function App() {
 
   return (
     <div className='app'>
       <Header/>
-      <RegisterMember/>
+      <CreateChallenge/>
     
     </div>
 
