@@ -1,0 +1,43 @@
+.profileChallengers{
+    float:left;
+    flex-direction: row;
+    margin-left: 20%;
+    width: 60%;
+    margin-bottom: 100px;
+}
+
+.card-img-top{
+    height: 200px;
+    width: 398px;
+}
+
+.card {
+    width: 400px;
+    margin-left: 20px;
+    float: left;
+    margin-top: 20px;
+    border-width: 1px;
+    border-color: #DD5E22;
+    border-style: solid;
+    max-height: 450px;
+    min-height: 420px;
+}
+
+.card-text{
+    max-height: 48px;
+    min-height: 48px;
+}
+
+.card-title {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.card-body{
+    width: 400px;
+}
+
+.iconAdd{
+    font-size: 6.5rem;
+    margin-top: 30px;
+}
