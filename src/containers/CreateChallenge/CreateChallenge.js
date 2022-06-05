@@ -3,6 +3,8 @@ import cinema from "../../IMG/iconCinema.png";
 import teamPark from "../../IMG/iconTeamPark.png";
 import bike from "../../IMG/bike.png";
 import aquarium from "../../IMG/aquarium.png";
+import {IoAddCircleOutline } from 'react-icons/io5';
+
 
 const CreateChallenge = () => {
   return (
@@ -55,6 +57,17 @@ const CreateChallenge = () => {
                 <img src={aquarium} alt="iconCinema" />
                 <p>Acuario Atlantis</p>
               </div>
+
+              <div  className="addNewReward">
+
+              <div className="addIcon">
+              <span> <IoAddCircleOutline/> </span> 
+              </div>
+
+              <p>Crear recompensa</p>
+              
+              </div>
+
             </div>
           </div>
           <input type="submit" value="CREAR RETO" className="sendButton" />

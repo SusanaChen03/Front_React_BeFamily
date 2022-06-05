@@ -19,15 +19,11 @@ function App() {
 
   return (
     <div className='app'>
-      <Header/>
-      <ListChallengers/>
-      <Register/>
-      <RegisterMember/>
-      <Login/>
-      <AddNewMember/>
+      
+     <Header/>
       <CreateChallenge/>
      
-      <Profile/> 
+       
       
 
     </div>
