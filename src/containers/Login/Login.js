@@ -1,4 +1,4 @@
-import Header from "../Header/Header";
+import Header from "../../components/Header/Header.js"
 import "./Login.css";
 import {URL_LOCAL} from "../../store/typesVar.js";
 
