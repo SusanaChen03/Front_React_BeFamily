@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { HIDDEN_POPUP, USER_LOGGED, SHOW_POPUP,USER_LOGOUT} from "./typesVar.js";
+import { USER_LOGGED, SHOW_POPUP, HIDDEN_POPUP} from "./typesVar.js";
 
 
 import {
@@ -8,12 +8,42 @@ import {
 
 
 const initialState = {
+    logged:false,
+    isAdmin:false,
+    popup: { visibility: false, text: "" },
+    token: null,
+    id: 0,
+    name: ""
 
 };
 
 
 const reducer = (state = initialState, action) => {
+    if(action.type === USER_LOGGED){
+        return{
+            ...state,
+            logged:true,
+            token: action.payload.token,
+            id: action.payload.id,
+            name: action.payload.name
+        }
+    }
 
+    if (action.type === SHOW_POPUP) {
+        return {
+          ...state,
+          popup: { visibility: true, text: action.payload }
+        };
+      }
+
+      if (action.type === HIDDEN_POPUP) {
+        return {
+          ...state,
+          popup: { visibility: false }
+        };
+    }
+
+    return state;
 };
 
 
