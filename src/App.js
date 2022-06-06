@@ -14,17 +14,34 @@ import CreateChallenge from './containers/CreateChallenge/CreateChallenge';
  
 import ListChallengers from './containers/ListChallengers/ListChallengers';
 import Profile from './containers/Profile/Profile';
+import ListRewards from './containers/ListRewards/ListRewards';
+import CreateReward from './containers/CreateReward/CreateReward';
+import Home from './containers/Home/Home';
 
 function App() {
 
   return (
     <div className='app'>
-      
-     <Header/>
-      <CreateChallenge/>
+      <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Onboarding/>} />
+        <Route path='/register' element={<Register/>} />
+        <Route path='/home' element={<Home/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/listChallenges' element={<ListChallengers/>} />
+        <Route path='/listRewards' element={<ListRewards/>} />
+        <Route path='/profile' element={<Profile/>} />
+
+
+
+
+
+      </Routes>
+      </BrowserRouter>
      
-       
       
+    
 
     </div>
 
