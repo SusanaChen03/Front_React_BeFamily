@@ -4,15 +4,54 @@ import teamPark from "../../IMG/iconTeamPark.png";
 import bike from "../../IMG/bike.png";
 import aquarium from "../../IMG/aquarium.png";
 import {IoAddCircleOutline } from 'react-icons/io5';
+import { Link, useNavigate } from "react-router-dom";
 
 
 const CreateChallenge = () => {
+
+  const navigate = useNavigate();
+
+  const formSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const formData = {
+        familyName: e.target[0].value,
+        name: e.target[1].value,
+        repeat: e.target[2].value,
+        reward: e.target[3].value,
+        memberId: e.target[4].value,
+      };
+
+      let postChallenge = await fetch("http://localhost:8000/api/challenge", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const challengeData = await postChallenge.json();
+
+      if (challengeData) {
+        alert("The new challenge is generated");
+        navigate ('/listChallenges')     
+      }
+    } catch (error) {
+      alert("challenge creation failed" + error);
+      console.log(error);
+    }
+  };
+
+  const buttonHandler = () =>{
+    navigate('/listChallenges')
+  };
+
   return (
     <div>
       <div>
         <h1>Creación de un nuevo reto</h1>
 
-        <form>
+        <form onSubmit={(e) => formSubmit(e)}>
           <div>
             <label htmlFor="whoMember"> ¿Quienes van a participar?</label>
 
@@ -60,9 +99,8 @@ const CreateChallenge = () => {
 
               <div  className="addNewReward">
 
-              <div className="addIcon">
-              <span> <IoAddCircleOutline/> </span> 
-              </div>
+              <Link to='/createReward'> <span className="addIcon">  <IoAddCircleOutline />{""}</span>  </Link>
+              
 
               <p>Crear recompensa</p>
               
@@ -70,7 +108,7 @@ const CreateChallenge = () => {
 
             </div>
           </div>
-          <input type="submit" value="CREAR RETO" className="sendButton" />
+          <input type="submit" value="CREAR RETO" className="sendButton" onClick={buttonHandler}/>
         </form>
       </div>
     </div>
