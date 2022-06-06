@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "./CreateReward.css";
 
 const CreateReward = () => {
+    const navigate = useNavigate();
 
+
+    const buttonHandler = () =>{
+        navigate('/createChallenge')
+;    }
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -55,6 +61,7 @@ const CreateReward = () => {
             type="submit"
             value="CREAR RECOMPENSA"
             className="sendButton"
+            onClick={buttonHandler}
           />
         </form>
       </div>
