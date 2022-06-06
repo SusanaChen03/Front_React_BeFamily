@@ -4,9 +4,17 @@ import logo from "../../IMG/LOGO.png";
 import icon2 from "../../IMG/streamline-icon-startup@250x250 1.png";
 import icon3 from "../../IMG/streamline-icon-mvp@250x250 1.png";
 import icon4 from "../../IMG/streamline-icon-boombox@250x250 1.png";
+import { useNavigate } from "react-router-dom";
 
 const Onboarding = () => {
-  return (
+
+  const navigate = useNavigate();
+
+  const buttonHandler = () =>{
+    navigate('/register')
+  };
+
+   return (
     <div>
       <div className="container">
         <div className="left">
@@ -46,7 +54,7 @@ const Onboarding = () => {
           <h3>Levantarte por las mañanas lleno de energía y alegría</h3>
           <img src={icon4} alt="iconboom" />
         </div>
-        <input className="discover" type="button" value="Descúbrelo"/>
+        <input className="discover" type="button" value="Descúbrelo" onClick={buttonHandler}/>
       </div>
       
     </div>
