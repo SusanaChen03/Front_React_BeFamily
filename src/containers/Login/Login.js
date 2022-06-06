@@ -1,10 +1,15 @@
 import Header from "../../components/Header/Header.js"
 import "./Login.css";
 import {URL_LOCAL} from "../../store/typesVar.js";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
 
   const formSubmit = async (e) => {
 
@@ -26,17 +31,19 @@ const Login = () => {
         }
       );
       const data = await loginUser.json();
-      if(!data){
-        console.log('error no have data')
+      if (data) {
+        alert("User Logged");
+        navigate("/home");
       }
-      console.log('Correctp_'+data);
     } catch (error) {
+      alert("Failed user login" + error);
       console.log(error);
     }
   };
 
   return (
     <div>
+
       <div className="loginContainer">
         <h1>BIENVENIDOS!</h1>
 
