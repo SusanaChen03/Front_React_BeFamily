@@ -27,10 +27,10 @@
     margin-left: 20px;
 }
 
-.titelFamliy{
-    margin-top: 70px;
-    height: 4px;
-    margin-left: 30%;
+.titleFamliy{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 }
 
 .contentUser2{
@@ -39,9 +39,14 @@
     margin-top: -35px;
 }
 
-.spname{
+.spaname{
     margin-right: 50px;
     margin-bottom: 3px;
-    cursor: pointer;
+}
+
+.iconAddd{
+    color:#F6AC3A;
+    font-size: 30px;
+
 }
  

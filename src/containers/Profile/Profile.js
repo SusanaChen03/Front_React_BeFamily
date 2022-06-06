@@ -1,5 +1,6 @@
 import "./Profile.css";
 import { IoPersonAddSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
@@ -28,9 +29,9 @@ const Profile = () => {
         </div>
       </div>
       <div className="profileData2">
-        <h3 className="titelFamliy">
-          <span className="spname">MIEMBROS DE LA FAMILIA</span>{" "}
-          <IoPersonAddSharp />
+        <h3 className="titleFamliy">
+          <span className="spaname">MIEMBROS DE LA FAMILIA</span>{" "}
+          <Link to='/addMember'> <span className="iconAddd"><IoPersonAddSharp /> </span> </Link> 
         </h3>
         <table class="table table-striped">
           <thead>
