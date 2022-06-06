@@ -1,6 +1,10 @@
-import Header from "../../components/Header/Header.js";
 import "./Login.css";
-import { SHOW_POPUP, URL_LOCAL, USER_LOGGED, HIDDEN_POPUP } from "../../store/typesVar.js";
+import {
+  SHOW_POPUP,
+  URL_LOCAL,
+  USER_LOGGED,
+  HIDDEN_POPUP,
+} from "../../store/typesVar.js";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionCreator from "../../store/actionTypes.js";
@@ -26,12 +30,13 @@ const Login = () => {
       });
 
       const data = await loginUser.json();
-     
+
       if (data.success === true) {
         sessionStorage.setItem("token", data.token);
         sessionStorage.setItem("id", data.user.id);
         sessionStorage.setItem("rol", data.user.rol);
         sessionStorage.setItem("name", data.user.name);
+        sessionStorage.setItem("familyName", data.user.familyName);
         sessionStorage.setItem("logged", true);
 
         if (sessionStorage.getItem("rol") === "admin") {
@@ -43,9 +48,15 @@ const Login = () => {
               role: data.user.role,
             })
           );
-          dispatch( actionCreator(SHOW_POPUP, "Se a iniciado correctamente. Bienvenid@ Admin"));
+          dispatch(
+            actionCreator(
+              SHOW_POPUP,
+              "Se a iniciado correctamente. Bienvenid@ Admin"
+            )
+          );
 
           setTimeout(() => dispatch(actionCreator(HIDDEN_POPUP)), 2000);
+
           navigate("/home");
         } else {
           dispatch(
@@ -53,13 +64,16 @@ const Login = () => {
               token: data.token,
               id: data.user.id,
               name: data.user.name,
-              role: data.user.role
+              role: data.user.role,
             })
           );
-          dispatch(actionCreator(SHOW_POPUP, "Se a iniciado correctamente. Bienvenido" + {name: data.name}));
-          console.log(
-            "Se a iniciado correctamente. Bienvenido" + { name: data.name }
+          dispatch(
+            actionCreator(
+              SHOW_POPUP,
+              "Se a iniciado correctamente. Bienvenido" + { name: data.name }
+            )
           );
+
           setTimeout(() => dispatch(actionCreator(HIDDEN_POPUP)), 2000);
           navigate("/home");
         }
@@ -68,7 +82,6 @@ const Login = () => {
       }
     } catch (error) {
       alert("Failed user login" + error);
-      console.log(error);
     }
   };
 
