@@ -1,43 +1,47 @@
 import "./AddNewMember.css";
 import { useNavigate } from "react-router-dom";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import actionCreator from "../../store/actionTypes";
+import { SHOW_POPUP, URL_LOCAL, HIDDEN_POPUP } from "../../store/typesVar.js";
 
 const AddNewMember = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const pop = useSelector((state) => state.SHOW_POPUP);
 
   const formSubmit = async (e) => {
-
     e.preventDefault();
     try {
       const formData = {
-        familyName: e.target[0].value,
-        name: e.target[1].value,
-        birthday: e.target[2].value,
-        email: e.target[3].value,
-        password: e.target[4].value,
+        familyName: sessionStorage.getItem("familyName"),
+        name: e.target[0].value,
+        birthday: e.target[1].value,
+        email: e.target[2].value,
+        password: e.target[3].value,
       };
-      let registerUser = await fetch( "http://localhost:8000/api/member", 
-        {
-          method:"POST",
-          body: JSON.stringify(formData),
-          headers:{
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await registerUser.json();
-          
-      if (data) {
+
+      let registerMember = await fetch(URL_LOCAL + "/member", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + sessionStorage.getItem("token"),
+        },
+      });
+      const dataMember = await registerMember.json();
+      if (dataMember.success === true) {
+        dispatch(actionCreator(SHOW_POPUP, "Se ha creado un nuevo miembro"));
         alert("The new member is added");
-         navigate("/profile");
+        navigate("/profile");
+      } else {
+        alert("member creation failed:" + dataMember.data);
       }
     } catch (error) {
-      alert("member creation failed" + error);
+      dispatch(actionCreator(SHOW_POPUP, "No se ha podido crear el miembro"));
+      alert("member creation failed:" + error);
       console.log(error);
     }
-   
   };
 
   return (
@@ -46,9 +50,6 @@ const AddNewMember = () => {
         <h1>Miembro de Familia</h1>
       </div>
       <form onSubmit={(e) => formSubmit(e)}>
-        
-        <input type="hidden" id="familyName" name="familyName" />
-
         <label htmlFor="name">¿Cómo te llamas?</label>
         <input type="text" id="name" name="name" />
 
@@ -61,10 +62,11 @@ const AddNewMember = () => {
         <label htmlFor="password">Contraseña</label>
         <input type="password" id="password" name="password" />
 
-        <input type="submit" value="Guardar" className="sendButton"/>
-
-      
-
+        <input
+          type="submit"
+          value="CREAR NUEVO MIEMBRO"
+          className="sendButton"
+        />
       </form>
     </div>
   );
