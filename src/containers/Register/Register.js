@@ -1,10 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import "./Register.css";
-
 
 const Register = () => {
 
-  const formSubmit = async (e) => {
+  const navigate = useNavigate();
 
+  const formSubmit = async (e) => {
     e.preventDefault();
     try {
       const formData = {
@@ -14,23 +15,26 @@ const Register = () => {
         email: e.target[3].value,
         password: e.target[4].value,
       };
-      let registerUser = await fetch( "http://localhost:8000/api/register", 
-        {
-          method:"POST",
-          body: JSON.stringify(formData),
-          headers:{
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      let registerUser = await fetch("http://localhost:8000/api/register", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await registerUser.json();
-      if(!data){
-        console.log('error no have data')
+      if (data) {
+        alert("User Registed");
+        navigate("/home");
       }
- 
     } catch (error) {
+      alert("Failed register user" + error);
       console.log(error);
     }
+  };
+
+  const buttonHandler = () => {
+    navigate('/login')
   };
 
   return (
@@ -56,12 +60,11 @@ const Register = () => {
         <label htmlFor="password">Contraseña</label>
         <input type="password" id="password" name="password" />
 
-        <input type="submit" value="CONTINUAR" className="sendButton"/>
+        <input type="submit" value="CONTINUAR" className="sendButton" />
 
         <div className="linkAccount">
-        <a className="haveAccount">Ya tengo cuenta</a>
+          <a className="haveAccount" onClick={buttonHandler}>Ya tengo cuenta</a>
         </div>
-
       </form>
     </div>
   );
