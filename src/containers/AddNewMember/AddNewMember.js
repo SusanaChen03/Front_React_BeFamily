@@ -24,13 +24,16 @@ const AddNewMember = () => {
         }
       );
       const data = await registerUser.json();
-      if(!data){
-        console.log('error no have data')
+          
+      if (data) {
+        alert("The new member is added");
+        // navigate("/listAppointment", { state: location.state });
       }
- 
     } catch (error) {
+      alert("member creation failed" + error);
       console.log(error);
     }
+   
   };
 
   return (
