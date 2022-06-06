@@ -1,5 +1,6 @@
 import "./ListRewards.css";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const ListRewards = () => {
   return (
@@ -45,18 +46,6 @@ const ListRewards = () => {
 
         <div class="card">
           <img
-            src="https://i.ytimg.com/vi/tKa3mSgpRi8/maxresdefault.jpg"
-            class="card-img-top"
-            alt="cinema"  />
-         
-          <div class="card-body">
-            <h5 class="card-title">Entradas al parque de atracciones</h5>
-            <p class="card-text">Entradas al parque de atracciones</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img
             src="https://anpeandalucia.es/imageFile.php?link=portfolio/1/aqualand_t1559905111a.jpg"
             class="card-img-top"
             alt="Aqualand"
@@ -66,7 +55,9 @@ const ListRewards = () => {
             <h5 class="card-title">Añade una nueva recompensa</h5>
 
             <h1 class="iconAdd">
+              <Link to='/createReward'>
               <IoAddCircleOutline />{""}
+              </Link>
             </h1>
           </div>
         </div>
