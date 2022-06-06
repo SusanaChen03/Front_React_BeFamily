@@ -5,21 +5,23 @@ import bike from "../../IMG/bike.png";
 import aquarium from "../../IMG/aquarium.png";
 import {IoAddCircleOutline } from 'react-icons/io5';
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 
 const CreateChallenge = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const formSubmit = async (e) => {
     e.preventDefault();
     try {
       const formData = {
-        familyName: e.target[0].value,
-        name: e.target[1].value,
-        repeat: e.target[2].value,
-        reward: e.target[3].value,
-        memberId: e.target[4].value,
+        familyName: sessionStorage.getItem("familyName"),
+        name: e.target[0].value,
+        repeat: e.target[1].value,
+        reward: e.target[2].value,
+        memberId: e.target[3].value,
       };
 
       let postChallenge = await fetch("http://localhost:8000/api/challenge", {
@@ -72,7 +74,7 @@ const CreateChallenge = () => {
 
             <label htmlFor="repetition">Duración</label>
             <input
-              type="text"
+              type="number"
               id="repetition"
               name="repetition"
               placeholder="numero de repeticiones"
