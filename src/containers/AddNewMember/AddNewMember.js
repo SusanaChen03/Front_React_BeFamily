@@ -1,7 +1,11 @@
 import "./AddNewMember.css";
+import { useNavigate } from "react-router-dom";
+
 
 
 const AddNewMember = () => {
+  const navigate = useNavigate();
+
 
   const formSubmit = async (e) => {
 
@@ -27,7 +31,7 @@ const AddNewMember = () => {
           
       if (data) {
         alert("The new member is added");
-        // navigate("/listAppointment", { state: location.state });
+         navigate("/profile");
       }
     } catch (error) {
       alert("member creation failed" + error);
