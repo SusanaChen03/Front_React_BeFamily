@@ -32,6 +32,9 @@ function App() {
         <Route path='/listChallenges' element={<ListChallengers/>} />
         <Route path='/listRewards' element={<ListRewards/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/createChallenge' element={<CreateChallenge/>} />
+        <Route path='/createReward' element={<CreateReward/>} />
+        <Route path='/addMember' element={<AddNewMember/>} />
 
 
 
