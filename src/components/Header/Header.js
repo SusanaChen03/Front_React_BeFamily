@@ -1,11 +1,17 @@
 import "./Header.css";
+import { Link } from 'react-router-dom';
+
+
 
 const Header = () => {
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"  className="appName" > BeFAMILY </a>
+          <Link to='/home'>
+          <a class="navbar-brand" className="appName"> BeFAMILY </a>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"
@@ -20,15 +26,19 @@ const Header = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"> Mis retos </a>
+                <Link to='/listChallenges'>
+                <a class="nav-link active" aria-current="page"> Mis retos </a>
+                </Link>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"> Recompensas </a>
+                <Link to='listRewards'>
+                <a class="nav-link active" aria-current="page"> Recompensas </a>
+                </Link>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"> Retos Conseguidos </a>
+                <a class="nav-link active" aria-current="page"> Retos Conseguidos </a>
               </li>
 
               <li class="nav-item dropdown">
@@ -42,13 +52,10 @@ const Header = () => {
                 > Ajustes </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="#">Mi Perfil</a>
+                    <Link to='/profile'><a class="dropdown-item">Mi Perfil</a></Link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Another action</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Otras opciones</a>
                   </li>
                 </ul>
               </li>
