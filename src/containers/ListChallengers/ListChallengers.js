@@ -24,6 +24,9 @@ const ListChallengers = () =>{
                         <p class="card-text">21 repeticiones</p>
                         <p class="card-text">miembro 1 y 2</p>
                         <a href="#" class="btn btn-primary">Ir a Reto</a>
+                        <a href="#" class="btn btn-primary">Finalizar</a>
+                        <a href="#" class="btn btn-primary">Eliminar</a>
+
                     </div>
                 </div>
                 
