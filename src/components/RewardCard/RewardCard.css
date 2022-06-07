@@ -1,0 +1,37 @@
+
+
+.profileStyles{
+  float: left;
+    flex-direction: row;
+    margin-left: 15%;
+    width: 80%;
+    margin-bottom: 100px;
+} 
+
+.card {
+    width: 400px;
+    margin-left: 20px;
+    float: left;
+    margin-top: 20px;
+    border-width: 1px;
+    border-color: #DD5E22;
+    border-style: solid;
+    max-height: 450px;
+    min-height: 305px;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title{
+    color: #DD5E22;
+}
+
+.card-text{
+    font-size: small;
+}
+
