@@ -4,7 +4,6 @@ import "./RewardCard.css";
 const RewardCard = (reward) => {
   return (
     <div className="rewardCard">
-      <div className="profileStyles">
         <div class="card">
           <img
             src={reward.reward.image}
@@ -17,7 +16,6 @@ const RewardCard = (reward) => {
             <h2 class="card-text">{reward.reward.description}</h2>
           </div>
         </div>
-      </div>
     </div>
   );
 };

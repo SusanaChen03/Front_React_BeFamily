@@ -1,13 +1,5 @@
 
 
-.profileStyles{
-  float: left;
-    flex-direction: row;
-    margin-left: 15%;
-    width: 80%;
-    margin-bottom: 100px;
-} 
-
 .card {
     width: 400px;
     margin-left: 20px;
