@@ -1,9 +1,11 @@
 .welcome{
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 20px;
 }
-
+.form1{
+    margin-bottom: 100px;
+}
 label{
     display:block;
     text-align: center;

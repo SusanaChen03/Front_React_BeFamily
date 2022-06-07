@@ -42,7 +42,7 @@ const Register = () => {
       <div className="welcome">
         <h1>REGÍSTRATE Y EMPIEZA LA AVENTURA</h1>
       </div>
-      <form onSubmit={(e) => formSubmit(e)}>
+      <form  className="form1" onSubmit={(e) => formSubmit(e)}>
         <label htmlFor="familyName">
           Destaca tu familia! Poneos un nombre chulo
         </label>
