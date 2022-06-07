@@ -1,0 +1,32 @@
+.card {
+    width: 400px;
+    margin-left: 20px;
+    float: left;
+    margin-top: 20px;
+    border-width: 1px;
+    border-color: #DD5E22;
+    border-style: solid;
+    max-height: 450px;
+    min-height: 305px;
+}
+
+.cardBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardTitle{
+    color: #DD5E22;
+}
+
+.card-text{
+    font-size: small;
+}
+
+.cardButtons{
+    display: flex;
+    justify-content: space-evenly;
+
+}
