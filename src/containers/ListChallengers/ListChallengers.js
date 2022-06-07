@@ -1,77 +1,67 @@
-import './ListChallengers.css';
-import {IoAddCircleOutline } from 'react-icons/io5';
-import { useNavigate } from 'react-router-dom';
+import "./ListChallengers.css";
+import ChallengeCard from "../../components/ChallengeCard/ChallengeCard";
+import { IoAddCircleOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { URL_LOCAL } from "../../store/typesVar";
 
-const ListChallengers = () =>{
-
+const ListChallengers = () => {
   const navigate = useNavigate();
 
+  const [listChallenges, setListChallenges] = useState([]);
+
+  const challengeList = async () => {
+    const results = await fetch(URL_LOCAL + "/challenges", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + sessionStorage.getItem("token"),
+      },
+    });
+
+    const dataChallenges = await results.json();
+    setListChallenges(dataChallenges);
+  };
+
+  useEffect(() => {
+    try {
+        challengeList();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+
   const buttonHandler = () => {
-      navigate('/createChallenge');
-  }
+    navigate("/createChallenge");
+  };
 
-    return(
-        <div>
-            <h1>Retos de la Familia </h1>
+  return (
+    <div>
+      <h1>Retos de la Familia </h1>
 
-            <div className='profileStyles'>
-                <div class="card">
-                    <img src="https://blogs.iadb.org/conocimiento-abierto/wp-content/uploads/sites/10/2018/05/New-Project.png" 
-                    class="card-img-top" alt="challengeImage" />
+      <div> 
+          {listChallenges.map((challenges)=>{
+              return <ChallengeCard challenges={challenges}/>
+          })};
+      </div>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Lavar los platos de la cena</h5>
-                        <p class="card-text">21 repeticiones</p>
-                        <p class="card-text">miembro 1 y 2</p>
-                        <a href="#" class="btn btn-primary">Ir a Reto</a>
-                        <a href="#" class="btn btn-primary">Finalizar</a>
-                        <a href="#" class="btn btn-primary">Eliminar</a>
+      <div class="card">
+        <img
+          src="http://ejerciciosencasa.es/wp-content/uploads/2015/12/reto.jpg"
+          class="card-img-top"
+          alt="challengeImage"
+        />
 
-                    </div>
-                </div>
-                
-                 
-                <div class="card">
-                    <img src="https://blogs.iadb.org/conocimiento-abierto/wp-content/uploads/sites/10/2018/05/New-Project.png" 
-
-                    class="card-img-top" alt="challengeImage" />
-
-                    <div class="card-body">
-                        <h5 class="card-title">Vacaciones de Verano</h5>
-                        <p class="card-text">2 dias en el parque Acuatico full equip</p>
-                        <p class="card-text">Una mes haciendo la cama</p>
-                        <a href="#" class="btn btn-primary">Ir a Reto</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                <img src="https://blogs.iadb.org/conocimiento-abierto/wp-content/uploads/sites/10/2018/05/New-Project.png" 
-
-                    class="card-img-top" alt="challengeImage" />
-
-                    <div class="card-body">
-                        <h5 class="card-title">Vacaciones de Verano</h5>
-                        <p class="card-text">2 dias en el parque Acuatico full equipeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
-                        <p class="card-text">Una mes haciendo la cama</p>
-                        <a href="#" class="btn btn-primary">Ir a Reto</a>
-                    </div>
-                </div>
-
-
-                <div class="card">                  
-                  <img src="https://blogs.iadb.org/conocimiento-abierto/wp-content/uploads/sites/10/2018/05/New-Project.png" 
-
-                    class="card-img-top" alt="challengeImage" />
-
-                    <div class="card-body">
-                        <h5 class="card-title">Añade un nuevo Reto</h5>
-                    <h1 class="iconAdd" onClick={buttonHandler}><IoAddCircleOutline/> </h1> 
-                    </div>
-                </div>
-                
-            </div>
+        <div class="card-body">
+          <h5 class="card-title">Añade un nuevo Reto</h5>
+          <h1 class="iconAdd" onClick={buttonHandler}>
+            <IoAddCircleOutline />{" "}
+          </h1>
         </div>
-    )
+      </div>
+    </div>
+  );
 };
 
 export default ListChallengers;
