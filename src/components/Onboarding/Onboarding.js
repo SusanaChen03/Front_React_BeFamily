@@ -1,4 +1,5 @@
 import "./Onboarding.css";
+ 
 
 import logo from "../../IMG/LOGO.png";
 import icon2 from "../../IMG/streamline-icon-startup@250x250 1.png";
@@ -23,7 +24,7 @@ const Onboarding = () => {
           <p className="p2">Mejora en familia</p> <br />
           <p className="p3">Crece en familia</p>
         </div>
-
+ 
         <div class="right">
           <p class="p4">
           !Nadie conoce a los tuyos mejor que tú! <br/>
