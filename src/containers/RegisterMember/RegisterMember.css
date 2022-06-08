@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-h3{
+.registerMember{
     margin: 40px;
 }
 
@@ -26,6 +26,7 @@ h3{
 }
 
 a:link{
+    cursor: pointer;
     text-decoration: none;
 }
 a:hover{
