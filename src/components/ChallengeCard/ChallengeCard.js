@@ -1,35 +1,35 @@
 import "./ChallengeCard.css";
 
-const ChallengeCard = (challenge) => {
+const Challengecard = (challenge) => {
   return (
-    <div className="challengeCard">
-        <div class="card">
-          <img
-            src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
-            class="card-img-top"
-            alt="challengeImage"
-          />
-
-          <div class="cardBody">
-            <h3 class="cardTitle">{challenge.challenges.name}</h3>
-            <h2 class="card-text">  Repeticiones: {challenge.challenges.repeat} </h2>
-            <h2 class="card-rew">Recompensa: {challenge.challenges.reward}</h2>
+    <li>
+      <a href="" class="cardCH">
+        <img
+          src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
+          class="cardCH__image"
+          alt=""
+        />
+        <div class="cardCH__overlay">
+          <div class="cardCH__header">
+            <img
+              class="cardCH__thumb"
+              src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
+              alt=""
+            />
+            <div class="cardCH__header-text">
+              <h3 class="cardCH__title">{challenge.challenges.name}</h3>
+              <span class="cardCH__status">
+                Repeticiones: {challenge.challenges.repeat}
+              </span>
             </div>
-            <div className="cardButtons">
-            <a href="#" class="btn btn-outline-primary">
-              Ir a Reto
-            </a>
-            <a href="#" class="btn btn-outline-primary">
-              Finalizar
-            </a>
-            <a href="#" class="btn btn-outline-primary">
-              Eliminar
-            </a>
-            </div>
-          
+          </div>
+          <p class="cardCH__description">
+            Recompensa: {challenge.challenges.reward}
+          </p>
         </div>
-    </div>
+      </a>
+    </li>
   );
 };
 
-export default ChallengeCard;
+export default Challengecard;
