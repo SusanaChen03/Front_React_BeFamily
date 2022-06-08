@@ -1,80 +1,110 @@
 import "./Header.css";
-import { Link } from 'react-router-dom';
-
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import store from "../../store/store.js";
+import { Link } from "react-router-dom";
+import { USER_LOGOUT } from "../../store/typesVar.js";
+import actionCreator from "../../store/actionTypes";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [logged, setLogged] = useState(false);
+  const [isAdmin, setisAdmin] = useState(false);
+  const [name, setName] = useState("");
+
+  const buttonHandlerSearh = async (e) => {
+    try {
+      let value = e.target[0].value;
+      console.log("value:" + value);
+
+      if (value == null || value == "") {
+        navigate("/home");
+      } else {
+        navigate({ pathname: "/home/" + value });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    store.subscribe(() => {
+      setName(store.getState().name[0]);
+      setLogged(store.getState().logged);
+      setisAdmin(store.getState().isAdmin); //
+    });
+
+    if (sessionStorage.getItem("name") != null) {
+      setName(sessionStorage.getItem("name")[0]);
+    }
+    setLogged(sessionStorage.getItem("logged"));
+  }, []);
+
+  const buttonHandler = async () => {
+    try {
+      sessionStorage.clear();
+      dispatch(actionCreator(USER_LOGOUT));
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <div>
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <Link to='/home'>
-          <a class="navbar-brand" className="appName"> BeFAMILY </a>
-          </Link>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <Link to='/listChallenges'>
-                <a class="nav-link active" aria-current="page"> Mis retos </a>
-                </Link>
-              </li>
-
-              <li class="nav-item">
-                <Link to='listRewards'>
-                <a class="nav-link active" aria-current="page"> Recompensas </a>
-                </Link>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"> Retos Conseguidos </a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                > Ajustes </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <Link to="/home"> <a class="navbar-brand" href="#" className="appName"> BeFamily</a></Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 headerOptions">
+            {logged && (<li class="nav-item"> <Link to="/listChallenges"> <a class="nav-link active" aria-current="page">Retos</a></Link></li>
+            )}
+            {logged && (<li class="nav-item"><Link to="listRewards"><a class="nav-link active" aria-current="page"> Recompensas </a></Link></li>
+            )}
+            {logged && (
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ajustes</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <Link to='/profile'><a class="dropdown-item">Mi Perfil</a></Link>
+                    <Link to="/profile" className="dropdown-item pa">Mi Perfil</Link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Otras opciones</a>
+                    <hr class="dropdown-divider" />
                   </li>
                 </ul>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
+            </li>
+            )}
+          </ul>
+          {logged && (
+            <form class="d-flex" onSubmit={(e) => buttonHandlerSearh(e)}>
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              <button class="btn btn-outline-success searchButton" type="submit" >  Search  </button>
             </form>
-          </div>
+          )}
+          {!logged && (
+            <Link to="/register"><button class="btn btn-primary register" type="button">Registrate</button> </Link>
+          )}
+          {!logged && (<Link to="/login"><button class="btn btn-primary register" type="button">Login</button></Link>
+          )}
+          {logged && (
+            <button onClick={buttonHandler} className="btn btn-primary register logoutButton" type="button" >Logout</button>
+          )}
+          {logged && <div className="circle">{name}</div>}
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 
