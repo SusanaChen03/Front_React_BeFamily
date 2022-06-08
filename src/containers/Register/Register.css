@@ -31,11 +31,17 @@ input{
     background-color: #0FB8A6;
 }
 
+.sendButton:hover{
+    background-color: #F6AC3A
+}
+
 .linkAccount{
     display: flex;
     justify-content: center;
 }
 
-a{
+.haveAccount{
     font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
 }
