@@ -25,12 +25,11 @@ const ListChallengers = () => {
 
   useEffect(() => {
     try {
-        challengeList();
+      challengeList();
     } catch (error) {
       console.log(error);
     }
   }, []);
-
 
   const buttonHandler = () => {
     navigate("/createChallenge");
@@ -40,26 +39,27 @@ const ListChallengers = () => {
     <div>
       <h1>Retos de la Familia </h1>
 
-      <div> 
-          {listChallenges.map((challenges)=>{
-              return <ChallengeCard challenges={challenges}/>
-          })};
-      </div>
+      <ul className="cardCHs">
+        {listChallenges.map((challenges) => {
+          return <ChallengeCard challenges={challenges} />;
+        })}
 
-      <div class="card">
-        <img
-          src="http://ejerciciosencasa.es/wp-content/uploads/2015/12/reto.jpg"
-          class="card-img-top"
-          alt="challengeImage"
-        />
-
-        <div class="card-body">
-          <h5 class="card-title">Añade un nuevo Reto</h5>
-          <h1 class="iconAdd" onClick={buttonHandler}>
-            <IoAddCircleOutline />{" "}
-          </h1>
-        </div>
-      </div>
+        <li>
+          <a href="" class="cardCH">
+            <img
+              src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
+              class="cardCH__image"
+              alt=""
+            />
+            <div class="cardCH__overlay">
+              <div class="cardCH__header cardHeader">
+                <span class="iconAdd" onClick={buttonHandler}> <IoAddCircleOutline /></span>
+                <h3 class="cardCH__title">AÑADIR NUEVO RETO</h3>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   );
 };
