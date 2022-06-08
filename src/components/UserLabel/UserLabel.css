@@ -1,0 +1,15 @@
+.names{
+    display: block;
+    width: 320px;
+    height: 35px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background-color: #F2F2F7;
+    font-size: 14px;
+}
+
+.names:hover{
+    background-color:#D75022;
+}
