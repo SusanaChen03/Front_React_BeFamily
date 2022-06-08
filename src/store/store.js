@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { USER_LOGGED, SHOW_POPUP, HIDDEN_POPUP} from "./typesVar.js";
+import { USER_LOGGED, SHOW_POPUP, HIDDEN_POPUP, USER_LOGOUT} from "./typesVar.js";
 
 
 import {
@@ -28,6 +28,13 @@ const reducer = (state = initialState, action) => {
             name: action.payload.name
         }
     }
+
+    if (action.type === USER_LOGOUT) {
+      return {
+          ...state,
+          logged: false,isAdmin:false
+      }
+  }
 
     if (action.type === SHOW_POPUP) {
         return {
