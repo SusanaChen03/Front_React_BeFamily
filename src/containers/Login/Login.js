@@ -1,10 +1,5 @@
 import "./Login.css";
-import {
-  SHOW_POPUP,
-  URL_LOCAL,
-  USER_LOGGED,
-  HIDDEN_POPUP,
-} from "../../store/typesVar.js";
+import {SHOW_POPUP,URL_LOCAL,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionCreator from "../../store/actionTypes.js";
