@@ -1,17 +1,63 @@
 import "./CreateChallenge.css";
-import cinema from "../../IMG/iconCinema.png";
-import teamPark from "../../IMG/iconTeamPark.png";
-import bike from "../../IMG/bike.png";
-import aquarium from "../../IMG/aquarium.png";
-import {IoAddCircleOutline } from 'react-icons/io5';
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import UserLabel from "../../components/UserLabel/UserLabel";
+import { useEffect, useState } from "react";
+import { URL_LOCAL } from "../../store/typesVar";
+import RewardLabel from "../../components/RewardLabel/RewardLabel";
+import { IoAddCircleOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const CreateChallenge = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [listUser, setListUser] = useState([]);
+
+  const userList = async () => {
+    const results = await fetch(URL_LOCAL + "/users", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + sessionStorage.getItem("token"),
+      },
+    });
+
+    const dataUsers = await results.json();
+    setListUser(dataUsers);
+  };
+
+  useEffect(() => {
+    try {
+      userList();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const [reward, setReward] = useState([]);
+
+  const rewardList = async () => {
+    const resultsReward = await fetch(URL_LOCAL + "/rewards", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + sessionStorage.getItem("token"),
+      },
+    });
+
+    const dataReward = await resultsReward.json();
+    setReward(dataReward);
+  };
+
+  useEffect(() => {
+    try {
+      rewardList();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +82,7 @@ const CreateChallenge = () => {
 
       if (challengeData) {
         alert("The new challenge is generated");
-        navigate ('/listChallenges')     
+        navigate("/listChallenges");
       }
     } catch (error) {
       alert("challenge creation failed" + error);
@@ -44,31 +90,22 @@ const CreateChallenge = () => {
     }
   };
 
-  const buttonHandler = () =>{
-    navigate('/listChallenges')
+  const buttonHandler = () => {
+    navigate("/listChallenges");
   };
 
   return (
     <div>
       <div>
         <h1>Creación de un nuevo reto</h1>
-
         <form onSubmit={(e) => formSubmit(e)}>
           <div>
             <label htmlFor="whoMember"> ¿Quienes van a participar?</label>
-
             <div>
-              <button type="submit" className="names">
-                name1
-              </button>
-              <button type="submit" className="names">
-                name2
-              </button>
-              <button type="submit" className="names">
-                name3
-              </button>
+              {listUser.map((allUsers) => {
+                return <UserLabel allUsers={allUsers} />;
+              })}
             </div>
-
             <label htmlFor="challengeName">Nombre del reto</label>
             <input type="text" id="challengeName" name="challengeName" />
 
@@ -81,36 +118,30 @@ const CreateChallenge = () => {
             ></input>
 
             <label htmlFor="reward">Recompensa</label>
+
             <div className="selectReward">
-              <div className="selected">
-                <img src={cinema} alt="iconCinema" />
-                <p>Entradas de cine</p>
-              </div>
-              <div className="selected">
-                <img src={teamPark} alt="iconCinema" />
-                <p>Parque de atracciones</p>
-              </div>
-              <div className="selected">
-                <img src={bike} alt="iconCinema" />
-                <p>Una bicicleta</p>
-              </div>
-              <div className="selected">
-                <img src={aquarium} alt="iconCinema" />
-                <p>Acuario Atlantis</p>
-              </div>
+              {reward.map((allRewards) => {
+                return <RewardLabel allRewards={allRewards} />;
+              })}
+              <div>
+                <div className="addNewReward">
+                  <Link to="/createReward">
+                    <span className="addIcon">
+                      <IoAddCircleOutline />
+                    </span>
+                  </Link>
 
-              <div  className="addNewReward">
-
-              <Link to='/createReward'> <span className="addIcon">  <IoAddCircleOutline />{""}</span>  </Link>
-              
-
-              <p>Crear recompensa</p>
-              
+                  <Link to="/listChallenge"></Link><p className="rewardName">Crear recompensa</p>
+                </div>
               </div>
-
             </div>
           </div>
-          <input type="submit" value="CREAR RETO" className="sendButton" onClick={buttonHandler}/>
+          <input
+            type="submit"
+            value="CREAR RETO"
+            className="sendButton"
+            onClick={buttonHandler}
+          />
         </form>
       </div>
     </div>
