@@ -59,6 +59,11 @@
     margin: auto;
 }
 
+.discover:hover{
+    background-color: #F6AC3A;
+    border-color: #F6AC3A;
+}
+
 .body{
     font-family: 'Sora', sans-serif;
     margin-bottom: 100px;

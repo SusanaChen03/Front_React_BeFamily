@@ -1,6 +1,4 @@
 import "./Onboarding.css";
- 
-
 import logo from "../../IMG/LOGO.png";
 import icon2 from "../../IMG/streamline-icon-startup@250x250 1.png";
 import icon3 from "../../IMG/streamline-icon-mvp@250x250 1.png";
@@ -18,6 +16,7 @@ const Onboarding = () => {
    return (
     <div>
       <div className="container">
+      
         <div className="left">
           <img src={logo} className="appLogo" alt="logo" />
           <p className="p1">Colabora en familia</p> <br />
@@ -33,8 +32,7 @@ const Onboarding = () => {
             <br /> a vuestro estilo de vida
           </p>
         </div>
-
-       
+        
       </div>
 
       <div className="body">
