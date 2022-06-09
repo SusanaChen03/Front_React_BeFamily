@@ -11,7 +11,7 @@ const ListChallengers = () => {
   const [listChallenges, setListChallenges] = useState([]);
 
   const challengeList = async () => {
-    const results = await fetch(URL_LOCAL + "/challenges", {
+    const results = await fetch(URL_LOCAL + "/challenge/familyName/" + sessionStorage("familyName"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
