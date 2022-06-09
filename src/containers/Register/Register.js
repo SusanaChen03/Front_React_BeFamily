@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
+import { useDispatch } from "react-redux";
+import actionCreator from "../../store/actionTypes.js";
+import {SHOW_POPUP,URL_LOCAL,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
+
+
 
 const Register = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +22,7 @@ const Register = () => {
         email: e.target[3].value,
         password: e.target[4].value,
       };
-      let registerUser = await fetch("http://localhost:8000/api/register", {
+      let registerUser = await fetch(URL_LOCAL + "/register", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -23,10 +30,57 @@ const Register = () => {
         },
       });
       const data = await registerUser.json();
-      if (data) {
-        alert("User Registed");
-        navigate("/home");
+
+      if (data.success === true) {
+        sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("id", data.user.id);
+        sessionStorage.setItem("rol", data.user.rol);
+        sessionStorage.setItem("name", data.user.name);
+        sessionStorage.setItem("familyName", data.user.familyName);
+        sessionStorage.setItem("logged", true);
+
+        if (sessionStorage.getItem("rol") === "admin") {
+          dispatch(
+            actionCreator(USER_LOGGED, {
+              token: data.token,
+              id: data.user.id,
+              name: data.user.name,
+              role: data.user.role,
+            })
+          );
+          dispatch(
+            actionCreator(
+              SHOW_POPUP,
+              "Se a iniciado correctamente. Bienvenid@ Admin"
+            )
+          );
+
+          setTimeout(() => dispatch(actionCreator(HIDDEN_POPUP)), 2000);
+
+          navigate("/home");
+        } else {
+          dispatch(
+            actionCreator(USER_LOGGED, {
+              token: data.token,
+              id: data.user.id,
+              name: data.user.name,
+              role: data.user.role,
+            })
+          );
+          dispatch(
+            actionCreator(
+              SHOW_POPUP,
+              "Se a iniciado correctamente. Bienvenido" + { name: data.name }
+            )
+          );
+
+          setTimeout(() => dispatch(actionCreator(HIDDEN_POPUP)), 2000);
+          navigate("/home");
+        }
+      } else {
+        alert("Error creación registro");
       }
+    
     } catch (error) {
       alert("Failed register user" + error);
       console.log(error);
