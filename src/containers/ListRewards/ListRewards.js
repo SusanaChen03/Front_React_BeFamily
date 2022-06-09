@@ -6,6 +6,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const ListRewards = () => {
+  
   const [listReward, setListReward] = useState([]);
 
   const rewardList = async () => {
@@ -32,32 +33,33 @@ const ListRewards = () => {
   return (
     <div>
       <h1>Lista de recompensas</h1>
-      <div className="cardsBody">
-        <div>
-          {listReward.map((reward) => {
+
+
+      <ul className="cardRWs">
+      {listReward.map((reward) => {
             return <RewardCard reward={reward} />;
           })}
-          
-        </div>
-        <div class="card">
-          <img
-            src="https://www.creaxid.com.mx/blog/wp-content/uploads/2016/12/Premios.png"
-            class="card-img-top"
-            alt="Aqualand"
-          />
+    <li>
+          <a href="" class="cardRW">
+            <img
+              src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
+              class="cardRW__image"
+              alt=""
+            />
+            <div class="cardRW__overlay">
+              <div class="cardRW__header cardHeader">
+                <Link to="/createReward"><span class="iconAdd"> <IoAddCircleOutline /></span></Link>
+                <h3 class="cardRW__title">AÑADIR NUEVA RECOMPENSA</h3>
+              </div>
+            </div>
+          </a>
+        </li>
 
-          <div class="card-body">
-            <h2 class="card-title">Añade una nueva recompensa</h2>
+           
+      </ul>
 
-            <Link to="/createReward">
-              <span class="iconAdd">
-                {" "}
-                <IoAddCircleOutline />{" "}
-              </span>{" "}
-            </Link>
-          </div>
-        </div>
-      </div>
+
+   
     </div>
   );
 };

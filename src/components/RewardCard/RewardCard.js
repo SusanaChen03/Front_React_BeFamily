@@ -3,20 +3,34 @@ import "./RewardCard.css";
 
 const RewardCard = (reward) => {
   return (
-    <div className="rewardCard">
-        <div class="card">
-          <img
-            src={reward.reward.image}
-            class="card-img-top"
-            alt="cinema"
-          />
 
-          <div class="card-body">
-            <h2 class="card-title">{reward.reward.name}</h2>
-            <h2 class="card-text">{reward.reward.description}</h2>
+
+    <li>
+      <a href="" class="cardRW">
+        <img
+          src={reward.reward.image}
+          class="cardRW__image"
+          alt=""
+        />
+        <div class="cardRW__overlay">
+          <div class="cardRW__header">
+            <img
+              class="cardRW__thumb"
+              src="https://www.creaxid.com.mx/blog/wp-content/uploads/2016/12/Premios.png"
+              alt=""
+            />
+            <div class="cardRW__header-text">
+              <h3 class="cardRW__title">{reward.reward.name}</h3>
+              <span class="cardRW__status">
+                {reward.reward.description}
+              </span>
+            </div>
           </div>
+       
         </div>
-    </div>
+      </a>
+    </li>
+  
   );
 };
 
