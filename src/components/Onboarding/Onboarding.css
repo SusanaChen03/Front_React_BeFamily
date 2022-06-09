@@ -4,18 +4,18 @@
 .container{
     display: flex;
     justify-content: space-evenly;
-    min-height: 100vh;
+    min-height: 70vh;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
 }
 
 .appLogo{
     size: 50px;
     margin-top: 140px;
     padding-right: 100px;
-}
-
-.left{
-    display: flex;
-    flex-direction: column;
 }
 
 .p1{
@@ -37,31 +37,15 @@
     font-size: 25px;
 }
 
-.p4{
-    margin-top: 100px;
-    font-family: 'Sora', sans-serif;
-    color: #D75022;
-    font-size: 35px;
-}
-
 .right{
     padding-top: 150px;
 }
 
-.discover{
-    font-size: 20px;
-    width: 350px;   
-    height: 52px;
-    color: #fff;
-    background-color: #0FB8A6 ;
-    border-color: #0FB8A6;
-    border-radius: 20px;
-    margin: auto;
-}
-
-.discover:hover{
-    background-color: #F6AC3A;
-    border-color: #F6AC3A;
+.p4{
+    margin-top: 100px;
+    font-family: 'Sora', sans-serif;
+    color: #D75022;
+    font-size: 33px;
 }
 
 .body{
@@ -80,11 +64,38 @@ h1{
     color: #D75022;
 }
 
-h3{
+.Part2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.phases{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explain{
+    margin-top:20px;
+    font-size: 25px;
     color: #F6AC3A;
 }
 
-.middle, .buttom, .center{
-    display: flex;
-    justify-content: center;
+.discover{
+    font-size: 20px;
+    width: 350px;   
+    height: 52px;
+    color: #fff;
+    background-color: #0FB8A6 ;
+    border-color: #0FB8A6;
+    border-radius: 20px;
+    margin: auto;
 }
+
+.discover:hover{
+    background-color:#D75022;
+    border-color:#D75022;
+}
+
