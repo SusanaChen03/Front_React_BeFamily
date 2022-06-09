@@ -7,3 +7,7 @@
 .iconAdd{
     font-size: 50px;
 }
+
+.iconAdd:hover{
+    color: #0FB8A6;
+}
