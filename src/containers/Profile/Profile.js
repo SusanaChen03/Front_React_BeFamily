@@ -1,38 +1,80 @@
 import "./Profile.css";
 import { IoPersonAddSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { URL_LOCAL } from "../../store/typesVar";
+import { useEffect, useState } from "react";
+import DetailProfile from "../../components/DetailProfile/DetailProfile";
+import DetailMember from "../../components/DetailMember/DetailMember";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const [profileUser, setProfileUser] = useState([]);
+
+  const getUser = async () => {
+    const results = await fetch(URL_LOCAL + "/profile", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + sessionStorage.getItem("token"),
+      },
+    });
+    const dataUser = await results.json();
+    setProfileUser(dataUser);
+  };
+  useEffect(() => {
+    try {
+      getUser();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const [members, setMembers] = useState([]);
+
+  const getmembers = async () => {
+    const results = await fetch(
+      URL_LOCAL + "/members/" + sessionStorage.getItem("familyName"),
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + sessionStorage.getItem("token"),
+        },
+      }
+    );
+    const dataMember = await results.json();
+    setMembers(dataMember);
+  };
+  useEffect(() => {
+    try {
+      getmembers();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div>
-      <h1>ADMINISTRADOR DE FAMILIA </h1>
+      <h1 className="familyAdmin">ADMINISTRADOR DE FAMILIA </h1>
 
-      <div className="profileData">
-        <div className="contentUser">
-          <label className="key">NOMBRE:</label>
-          <label className="value"> Francisco </label>
-        </div>
+      {<DetailProfile user={profileUser} />}
 
-        <div className="contentUser">
-          <label className="key">EMAIL:</label>
-          <label className="value"> francisco@gmail.com </label>
-        </div>
-
-        <div className="contentUser">
-          <label className="key">NOMBRE DE LA FAMILIA:</label>
-          <label className="value"> VillaChen </label>
-        </div>
-
-        <div className="contentUser">
-          <label className="key">CONTRASEÑA:</label>
-          <label className="value"> ****** </label>
-        </div>
+      <div className="updateButton">
+        <button type="button" class="btn btn-warning update">
+          Modificar Datos
+        </button>
       </div>
+
       <div className="profileData2">
         <h3 className="titleFamliy">
-          <span className="spaname">MIEMBROS DE LA FAMILIA</span>{" "}
-          <Link to='/addMember'> <span className="iconAddd"><IoPersonAddSharp /> </span> </Link> 
+          <span className="spaname">MIEMBROS DE LA FAMILIA</span>
+          <Link to="/addMember">
+            <span className="iconAddd">
+              <IoPersonAddSharp />
+            </span>
+          </Link>
         </h3>
+
         <table class="table table-striped">
           <thead>
             <tr>
@@ -43,12 +85,9 @@ const Profile = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Jose</td>
-              <td>12/09/1991</td>
-              <td>jose.villanueva@gmail.com</td>
-            </tr>
+          {members.map((member) => {
+                  return <DetailMember member={member} />;
+                })}
           </tbody>
         </table>
       </div>

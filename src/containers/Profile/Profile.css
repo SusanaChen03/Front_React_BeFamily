@@ -1,12 +1,30 @@
-.contentUser{
+.familyAdmin{
+    margin-top: 35px;
+    margin-bottom: -20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateButton{
+    display: flex;
+    justify-content: center;
     height: 30px;
 }
 
-.profileData{
-    display: flex;
-    flex-direction: column;
-    margin-left: 40%;
+.update{
+    background-color: #0FB8A6;
+    border-color:#0FB8A6;
+    color: #ffffff;
+    font-size: 12px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.update:hover{
+    background-color: #D75022;
+    border-color:#D75022;
+    color: #ffffff;
 }
 
 .profileData2{
@@ -17,36 +35,26 @@
     margin-top: 50px;
 }
 
-.key2{
-     
-    margin-left: 20px;
-}
-
-.value{
-    font-weight: normal;
-    margin-left: 20px;
-}
-
 .titleFamliy{
     display: flex;
     justify-content: center;
     align-items: baseline;
-}
-
-.contentUser2{
-    display: flex;
-    height: 30px;
-    margin-top: -35px;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .spaname{
     margin-right: 50px;
     margin-bottom: 3px;
+    color:#D75022;
 }
 
 .iconAddd{
-    color:#F6AC3A;
-    font-size: 30px;
+    color:#0FB8A6;
+}
 
+.iconAddd:hover{
+    color:#D75022;
 }
  
+
