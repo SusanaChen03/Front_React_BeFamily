@@ -3,15 +3,17 @@ import MiniCardChallenger from '../../components/MiniCardChallenger/MiniCardChal
 import { useEffect, useState } from 'react';
 import { SHOW_POPUP, URL_LOCAL, HIDDEN_POPUP } from "../../store/typesVar.js";
 
-
-
 const Home = () =>{
 
-    const [card, setCard] = useState([]);
+    const [cards, setCard] = useState([]);
 
     const cardList = async () =>{
         const cardsResult = await fetch(URL_LOCAL + "/challenges", {
             method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + sessionStorage.getItem("token"),
+            },
         });
         
         const dataCard = await cardsResult.json();
@@ -25,13 +27,13 @@ const Home = () =>{
           console.log(error);
         }
       }, []);
-    
-
-
 
     return(
         <div className='ContainerChallengers'>
-            <MiniCardChallenger/>
+             {cards.map((card) => {
+            return <MiniCardChallenger card={card} />;
+          })}
+      
         </div>
     )
 };
