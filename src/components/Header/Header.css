@@ -11,24 +11,23 @@
 }
 
 .searchButton{
-    color: #198754;
-    border-color: #198754;
+    color: #0FB8A6;
+    border-color:#0FB8A6;
     height: 33px;
     margin-top: 16px;
     margin-right: 20px;
     font-size: 12px
 }
 
-.logoutButton{
-    height: 32px;
-    background-color:#D75022;
+.searchButton:hover{
+    background-color: #0FB8A6;
 }
 
 .register{
     margin-right:10px;
     background-color:#D75022;
     border-color: #D75022;
-    height: 35px;
+    height: 33px;
     font-size: 12px;
 }
 

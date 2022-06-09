@@ -99,7 +99,7 @@ const Header = () => {
           {!logged && (<Link to="/login"><button class="btn btn-primary register" type="button">Login</button></Link>
           )}
           {logged && (
-            <button onClick={buttonHandler} className="btn btn-primary register logoutButton" type="button" >Logout</button>
+            <button onClick={buttonHandler} className="btn btn-primary register" type="button" >Logout</button>
           )}
           {logged && <div className="circle">{name}</div>}
         </div>
