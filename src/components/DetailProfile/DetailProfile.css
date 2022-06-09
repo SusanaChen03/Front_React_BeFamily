@@ -1,0 +1,20 @@
+.contentUser{
+    display: flex;
+    height: 30px;
+    margin-left: 40%;
+}
+
+.key{
+    font-size: 15px;
+}
+
+.value{
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: normal;
+}
+
+.contentProfile{
+    height: 200px;
+}
+
