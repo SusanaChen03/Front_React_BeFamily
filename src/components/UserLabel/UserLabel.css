@@ -13,3 +13,8 @@
 .names:hover{
     background-color:#D75022;
 }
+
+.selected {
+    background-color: #D75022;
+    color: #ffffff;
+}
