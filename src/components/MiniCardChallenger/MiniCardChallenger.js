@@ -1,9 +1,7 @@
 import "./MiniCardChallenger.css";
 import { IoAddCircleOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
 
-
-const MiniCardChallenger = () => {
+const MiniCardChallenger = (card) => {
   return (
       <div className="minicardMini"> 
     <section class="cardMini-section">
@@ -13,13 +11,11 @@ const MiniCardChallenger = () => {
                             <div class="cardMini-front">
                                 <div class="cardMini-front__tp cardMini-front__tp--city">
                                  <h3> <IoAddCircleOutline/></h3>   
-                                    
-
                                <h2 class="cardMini-front__heading">
-                                Cinesa
+                               {card.card.name}
                             </h2>
                             <p class="cardMini-front__text-price">
-                                Eternals
+                                Repeticiones:{card.card.repeat}
                             </p>
                                 </div>
 
@@ -42,10 +38,10 @@ const MiniCardChallenger = () => {
                     <div class="inside-page">
                         <div class="inside-page__container">
                             <h3 class="inside-page__heading inside-page__heading--city">
-                                Pelicula en Familia
+                            {card.card.name}
                             </h3>
                             <p class="inside-page__text">
-                              Ir a ver la peli de Eternals si hago los deberes
+                            {card.card.reward}
                             </p>
                             <a href="#" class="inside-page__btn inside-page__btn--city">Detalles</a>
                         </div>
