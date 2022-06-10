@@ -3,25 +3,29 @@
     justify-content: center;
     margin-top: 20px;
 }
+
 .form1{
     margin-bottom: 100px;
 }
-label{
+
+.infoRegister{
     display:block;
     text-align: center;
     color: #292956;
 }
 
-input{
+.resRegister{
     display: block;
     width: 320px;
     height: 35px;
     margin: auto;
+    padding-left: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 12px;
     background-color: #F2F2F7;
     border-color: #F2F2F7;
+    font-size: 13px;
 }
 
 .sendButton{

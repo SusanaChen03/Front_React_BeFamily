@@ -1,16 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionCreator from "../../store/actionTypes.js";
 import {SHOW_POPUP,URL_LOCAL,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
-
-
 
 const Register = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +75,13 @@ const Register = () => {
           navigate("/home");
         }
       } else {
-        alert("Error creación registro");
+        dispatch(
+          actionCreator(
+            SHOW_POPUP,
+            "Rellene todos los campos"
+          )
+        );
+        
       }
     
     } catch (error) {
@@ -100,21 +103,21 @@ const Register = () => {
         <label htmlFor="familyName">
           Destaca tu familia! Poneos un nombre chulo
         </label>
-        <input type="text" id="familyName" name="familyName" />
+        <input className="resRegister"  type="text" id="familyName" name="familyName" />
 
-        <label htmlFor="name">¿Cómo te llamas?</label>
-        <input type="text" id="name" name="name" />
+        <label className="infoRegister" htmlFor="name">¿Cómo te llamas?</label>
+        <input className="resRegister" type="text" id="name" name="name" />
 
-        <label htmlFor="birthday">Fecha de nacimiento</label>
-        <input type="date" id="birthday" name="birthday" />
+        <label className="infoRegister" htmlFor="birthday">Fecha de nacimiento</label>
+        <input className="resRegister" type="date" id="birthday" name="birthday" />
 
-        <label htmlFor="email">Tu dirección de correo preferida</label>
-        <input type="email" id="email" name="email" />
+        <label className="infoRegister" htmlFor="email">Tu dirección de correo preferida</label>
+        <input className="resRegister" type="email" id="email" name="email" />
 
-        <label htmlFor="password">Contraseña</label>
-        <input type="password" id="password" name="password" />
+        <label className="infoRegister" htmlFor="password">Contraseña</label>
+        <input className="resRegister" type="password" id="password" name="password" />
 
-        <input type="submit" value="CONTINUAR" className="sendButton" />
+        <input className="resRegister sendButton" type="submit" value="CONTINUAR" />
 
         <div className="linkAccount">
           <a className="haveAccount" onClick={buttonHandler}>Ya tengo cuenta</a>
