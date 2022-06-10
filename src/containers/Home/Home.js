@@ -8,7 +8,8 @@ const Home = () =>{
     const [cards, setCard] = useState([]);
 
     const cardList = async () =>{
-        const cardsResult = await fetch(URL_LOCAL + "/challenges", {
+     
+        const cardsResult = await fetch(URL_LOCAL + "/challenge/familyName/" + sessionStorage.getItem("familyName"), {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
