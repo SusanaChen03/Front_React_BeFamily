@@ -12,8 +12,9 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const [logged, setLogged] = useState(false);
-  const [isAdmin, setisAdmin] = useState(false);
   const [name, setName] = useState("");
+  // const [isAdmin, setisAdmin] = useState(false);
+  
 
   const buttonHandlerSearh = async (e) => {
     try {
@@ -34,7 +35,7 @@ const Header = () => {
     store.subscribe(() => {
       setName(store.getState().name[0]);
       setLogged(store.getState().logged);
-      setisAdmin(store.getState().isAdmin); //
+      // setisAdmin(store.getState().isAdmin); 
     });
 
     if (sessionStorage.getItem("name") != null) {
@@ -43,7 +44,7 @@ const Header = () => {
     setLogged(sessionStorage.getItem("logged"));
   }, []);
 
-  const buttonHandler = async () => {
+  const buttonLogout = async () => {
     try {
       sessionStorage.clear();
       dispatch(actionCreator(USER_LOGOUT));
@@ -53,10 +54,22 @@ const Header = () => {
     }
   };
 
+  const buttonHome = async () =>{
+    try{
+      if(logged){
+        navigate('/home')
+      }else{
+        navigate('/')
+      }
+    }catch (error){ 
+      console.log(error)
+    }
+  };
+
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <Link to="/home"> <a class="navbar-brand" href="#" className="appName"> BeFamily</a></Link>
+       <a class="navbar-brand" href="#" className="appName" onClick={buttonHome}> BeFamily</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -99,7 +112,7 @@ const Header = () => {
           {!logged && (<Link to="/login"><button class="btn btn-primary register" type="button">Login</button></Link>
           )}
           {logged && (
-            <button onClick={buttonHandler} className="btn btn-primary register" type="button" >Logout</button>
+            <button onClick={buttonLogout} className="btn btn-primary register" type="button" >Logout</button>
           )}
           {logged && <div className="circle">{name}</div>}
         </div>
