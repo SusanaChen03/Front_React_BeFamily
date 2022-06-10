@@ -86,13 +86,13 @@ const Login = () => {
         <h1>BIENVENIDOS!</h1>
 
         <form onSubmit={(e) => formSubmit(e)}>
-          <label htmlFor="email">Tu dirección de correo</label>
-          <input type="email" id="email" name="email" />
+          <label className="infoLogin" htmlFor="email">Tu dirección de correo</label>
+          <input className="resRegister" type="email" id="email" name="email" />
 
-          <label htmlFor="password">Contraseña</label>
-          <input type="password" id="password" name="password" />
+          <label className="infoLogin" htmlFor="password">Contraseña</label>
+          <input className="resRegister"type="password" id="password" name="password" />
 
-          <input type="submit" value="CONTINUAR" className="sendButton" />
+          <input className="resRegister sendButton" type="submit" value="CONTINUAR"/>
         </form>
       </div>
     </div>

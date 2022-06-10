@@ -10,23 +10,11 @@ h1{
     margin-top: 50px;
 }
 
-label{
+.infoLogin{
     display:block;
     text-align: center;
     color: #292956;
     font-size: 13px;
-}
-
-input{
-    display: block;
-    width: 320px;
-    height: 35px;
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    background-color: #F2F2F7;
-    border-color: #F2F2F7;
 }
 
 .sendButton{
