@@ -100,6 +100,7 @@ const Header = () => {
             </li>
             )}
           </ul>
+          <div className="headerButtons">
           {logged && (
             <form class="d-flex" onSubmit={(e) => buttonHandlerSearh(e)}>
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -115,6 +116,7 @@ const Header = () => {
             <button onClick={buttonLogout} className="btn btn-primary register" type="button" >Logout</button>
           )}
           {logged && <div className="circle">{name}</div>}
+          </div>
         </div>
       </div>
     </nav>
