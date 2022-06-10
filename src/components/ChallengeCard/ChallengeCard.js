@@ -3,7 +3,7 @@ import "./ChallengeCard.css";
 const Challengecard = (challenge) => {
   return (
     <li>
-      <a href="" class="cardCH">
+      <a href="" class="cardCH cardws">
         <img
           src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
           class="cardCH__image"

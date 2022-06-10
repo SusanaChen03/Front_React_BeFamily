@@ -110,3 +110,7 @@ display: -webkit-box;
 overflow: hidden;
 font-size: 12px;
 }    
+.cardws{
+    height: 325px;
+    width: 365px;
+}
