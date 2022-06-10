@@ -11,7 +11,7 @@ const ListChallengers = () => {
   const [listChallenges, setListChallenges] = useState([]);
 
   const challengeList = async () => {
-    const results = await fetch(URL_LOCAL + "/challenge/familyName/" + sessionStorage("familyName"), {
+    const results = await fetch(URL_LOCAL + "/challenge/familyName/" + sessionStorage.getItem("familyName"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const ListChallengers = () => {
         })}
 
         <li>
-          <a href="" class="cardCH">
+          <a href="/createChallenge" class="cardCH cardws">
             <img
               src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
               class="cardCH__image"
