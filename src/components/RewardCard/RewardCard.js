@@ -3,16 +3,14 @@ import "./RewardCard.css";
 
 const RewardCard = (reward) => {
   return (
-
-
     <li>
-      <a href="" class="cardRW">
+      <a href="#" class="cardRW cardws"  >
         <img
           src={reward.reward.image}
           class="cardRW__image"
           alt=""
         />
-        <div class="cardRW__overlay">
+        <div class="cardRW__overlay ">
           <div class="cardRW__header">
             <img
               class="cardRW__thumb"
