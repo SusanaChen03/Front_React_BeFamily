@@ -1,11 +1,12 @@
-h1{
+.h1Ch{
     color: #D75022;
 }
 
-label{
+.labelCh{
     margin-top: 50px;
     font-weight: bold;
 }
+
 .repeat{
     display:block
 }
@@ -19,20 +20,67 @@ label{
 }
 
 .addNewReward{
-        width: 150px;
-        height: 100px;
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right:10px;
-        border-radius: 10px;
-        border: 1px solid #D75022;
-    
+    width: 150px;
+    height: 100px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right:10px;
+    border-radius: 10px;
+    border: 1px solid #D75022;
+}
+ 
+.chactive{
+    width: 130px !important;
 }
 
+.divactive{
+    width: 300px !important;
+}
 .addIcon{
     text-align: center;
    font-size: 65px;
    color: #D75022;
+}
+.sendButtonCH{
+    width: 210px;
+    height: 42px;
+    color: #ffffff;
+    background-color: #0FB8A6;
+    display: block;
+    width: 320px;
+    height: 35px;
+    margin: auto;
+    padding-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background-color: #F2F2F7;
+    border-color: #F2F2F7;
+    font-size: 13px;
+}
+.ColorActive{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: center;
+    margin-left: 73px;
+    margin-top: 33px;
+}
+.operation{
+    margin-left: 35%;
+    width: 50%;
+}
+.btnSave{
+    float:left;
+    margin-right: 40px;;
+}
+.btnDelete{
+    float:left;
+    margin-right: 40px;;
+}
+.containerCH{
+    margin-bottom: 30px;
+
 }

@@ -4,7 +4,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { URL_LOCAL } from "../../store/typesVar";
-
+import { Link } from "react-router-dom";
 const ListChallengers = () => {
   const navigate = useNavigate();
 
@@ -39,27 +39,37 @@ const ListChallengers = () => {
     <div>
       <h1>Retos de la Familia </h1>
 
-      <ul className="cardCHs">
+      <div class="cardChallegnge">
         {listChallenges.map((challenges) => {
           return <ChallengeCard challenges={challenges} />;
         })}
+   
+        <div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover cardcontainerCh"  >
+              <img src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"  
+                  class="d-block w-full imgch" />
 
-        <li>
-          <a href="/createChallenge" class="cardCH cardws">
-            <img
-              src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
-              class="cardCH__image"
-              alt=""
-            />
-            <div class="cardCH__overlay">
-              <div class="cardCH__header cardHeader">
-                <span class="iconAdd" onClick={buttonHandler}> <IoAddCircleOutline /></span>
-                <h3 class="cardCH__title">AÑADIR NUEVO RETO</h3>
-              </div>
-            </div>
-          </a>
-        </li>
-      </ul>
+        <div class="px-2 py-2 hp">
+          <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
+            Retos
+          </p>
+
+          <h1 class="ff-serif font-weight-normal text-black card-heading mt-0 mb-1 hch1"  >
+          Crea un nuevo reto
+          </h1>
+
+          <p class="mb-1 tl1">
+          <Link to="/createChallenge" class="linknewrw"><span class="iconAdd"> <IoAddCircleOutline /></span></Link>
+          </p>
+
+        </div>
+
+        <a href="/createChallenge" class="text-uppercase d-inline-block font-weight-medium lts-2px ml-2 mb-2 text-center styled-link aref"  >
+          
+        </a>
+
+      </div>
+     
+      </div>
     </div>
   );
 };
