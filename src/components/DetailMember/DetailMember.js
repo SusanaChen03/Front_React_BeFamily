@@ -1,4 +1,3 @@
-import "./DetailMember.css";
 
 const DetailMember = (objMember) => {
   return (
