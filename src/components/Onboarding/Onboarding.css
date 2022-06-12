@@ -92,6 +92,8 @@ h1{
     border-color: #0FB8A6;
     border-radius: 20px;
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .discover:hover{
