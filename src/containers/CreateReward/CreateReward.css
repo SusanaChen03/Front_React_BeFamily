@@ -1,0 +1,35 @@
+.chcolor{
+    width: 130px !important;
+}
+.divColor{
+    width: 300px !important;
+    margin-right: 50px;
+}
+.ColorActive{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: center;
+    margin-left: 73px;
+    margin-top: 33px;
+}
+.h1rw{
+    color: #D75022;
+}
+
+.labelrw{
+    margin-top: 50px;
+    font-weight: bold;
+}
+.btnSave{
+    float:left;
+    margin-right: 40px;;
+}
+.btnDelete{
+    float:left;
+    margin-right: 40px;;
+}
+.operation{
+    margin-left: 35%;
+    width: 50%;
+}
