@@ -32,48 +32,11 @@ function App() {
           <Route path="/listChallenges" element={ <ProtectedRoute isLoggedIn={logged}> <ListChallengers /></ProtectedRoute>}/>
           <Route path="/listRewards" element={<ProtectedRoute isLoggedIn={logged}><ListRewards /></ProtectedRoute>}/>
           <Route path="/profile" element={<ProtectedRoute isLoggedIn={logged}><Profile /></ProtectedRoute>}/>
-          <Route
-            path="/createChallenge"
-            element={
-              <ProtectedRoute isLoggedIn={logged}>
-                <CreateChallenge />
-              </ProtectedRoute>
-            }
-          />
-        <Route
-            path="/createChallenge/:id"
-            element={
-              <ProtectedRoute isLoggedIn={logged}>
-                <CreateChallenge />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/createReward"
-            element={
-              <ProtectedRoute isLoggedIn={logged}>
-                <CreateReward />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/createReward/:id"
-            element={
-              <ProtectedRoute isLoggedIn={logged}>
-                <CreateReward />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/addMember"
-            element={
-              <ProtectedRoute isLoggedIn={logged}>
-                <AddNewMember />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/createChallenge"element={<ProtectedRoute isLoggedIn={logged}><CreateChallenge /> </ProtectedRoute>}/>
+          <Route path="/createChallenge/:id" element={<ProtectedRoute isLoggedIn={logged}><CreateChallenge /></ProtectedRoute>}/>
+          <Route path="/createReward" element={<ProtectedRoute isLoggedIn={logged}><CreateReward /></ProtectedRoute>}/>
+          <Route path="/createReward/:id" element={<ProtectedRoute isLoggedIn={logged}><CreateReward /></ProtectedRoute>}/>
+          <Route path="/addMember"element={<ProtectedRoute isLoggedIn={logged}><AddNewMember /></ProtectedRoute>}/>
         </Routes>
       </BrowserRouter>
     </div>
