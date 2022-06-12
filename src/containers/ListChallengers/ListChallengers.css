@@ -11,7 +11,14 @@
 .iconAdd:hover{
     color: #0FB8A6;
 }
-.cardws{
-    height: 325px;
-    width: 365px;
-}
+.cardChallegnge{
+    width: 80%;
+    margin-left: 10%;
+    display: flex !important;
+    display: -webkit-flex;
+    /* -webkit-justify-content: center; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+  }

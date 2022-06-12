@@ -1,4 +1,21 @@
 .iconAdd{
     color:  #DD5E22;
 }
+.cardChallegnge{
+    width: 80%;
+    margin-left: 10%;
+    display: flex !important;
+    display: -webkit-flex;
+    /* -webkit-justify-content: center; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 
+  
+  }
+.linknewrw{
+    margin-left: 35%;;
+}
+.containerRw{
+    margin-bottom: 100px;
+}

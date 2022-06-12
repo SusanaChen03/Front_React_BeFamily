@@ -1,35 +1,45 @@
 import "./ChallengeCard.css";
-
-const Challengecard = (challenge) => {
+import { useNavigate } from "react-router-dom";
+const ChallengeCard = (challenge) => {
+  const navigate = useNavigate();
+  const buttonHandler = async () => {
+    try {
+     
+      navigate("/CreateChallenge/"+challenge.challenges.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <li>
-      <a href="" class="cardCH cardws">
-        <img
-          src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
-          class="cardCH__image"
-          alt=""
-        />
-        <div class="cardCH__overlay">
-          <div class="cardCH__header">
-            <img
-              class="cardCH__thumb"
-              src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
-              alt=""
-            />
-            <div class="cardCH__header-text">
-              <h3 class="cardCH__title">{challenge.challenges.name}</h3>
-              <span class="cardCH__status">
-                Repeticiones: {challenge.challenges.repeat}
-              </span>
-            </div>
-          </div>
-          <p class="cardCH__description">
-            Recompensa: {challenge.challenges.reward}
-          </p>
-        </div>
-      </a>
-    </li>
+
+<div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover cardcontainerCh"  >
+        <img src={challenge.challenges.urlReward} alt={challenge.challenges.name}
+            class="d-block w-full imgch" />
+
+  <div class="px-2 py-2">
+    <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
+      Reto
+    </p>
+
+    <h1 class="ff-serif font-weight-normal text-black card-heading mt-0 mb-1 hch1"  >
+    {challenge.challenges.reward}
+    </h1>
+
+    <p class="mb-1 tl1">
+    {challenge.challenges.name}
+    </p>
+
+  </div>
+
+  <a href="#" class="text-uppercase d-inline-block font-weight-medium lts-2px ml-2 mb-2 text-center styled-link aref" onClick={buttonHandler}>
+   Editar
+  </a>
+
+</div>
+  
+
+  
   );
 };
 
-export default Challengecard;
+export default ChallengeCard;
