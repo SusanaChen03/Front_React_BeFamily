@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c156bf60-a090-4c17-86bf-abfd23d37b0b/microsoft.web/sites/subscriptions/c156bf60-a090-4c17-86bf-abfd23d37b0b/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/BeFamily",
+    "appService.deploySubpath": "."
+}

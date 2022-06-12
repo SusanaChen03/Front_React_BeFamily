@@ -10,7 +10,7 @@ const ListRewards = () => {
   const [listReward, setListReward] = useState([]);
 
   const rewardList = async () => {
-    const results = await fetch(URL_LOCAL + "/rewards", {
+    const results = await fetch(URL_LOCAL + "/reward/" + sessionStorage.getItem("familyName"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -31,32 +31,43 @@ const ListRewards = () => {
   }, []);
 
   return (
-    <div>
+    <div className="containerRw">
       <h1>Lista de recompensas</h1>
 
 
-      <ul className="cardRWs">
+      <div class="cardChallegnge">
       {listReward.map((reward) => {
             return <RewardCard reward={reward} />;
           })}
-    <li>
-          <a href="" class="cardRW">
-            <img
-              src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"
-              class="cardRW__image"
-              alt=""
-            />
-            <div class="cardRW__overlay">
-              <div class="cardRW__header cardHeader">
-                <Link to="/createReward"><span class="iconAdd"> <IoAddCircleOutline /></span></Link>
-                <h3 class="cardRW__title">AÑADIR NUEVA RECOMPENSA</h3>
-              </div>
-            </div>
-          </a>
-        </li>
+    
+    <div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover cardcontainerCh"  >
+        <img src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"  
+            class="d-block w-full imgch" />
+
+  <div class="px-2 py-2 hp">
+    <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
+      Recompensa
+    </p>
+
+    <h1 class="ff-serif font-weight-normal text-black card-heading mt-0 mb-1 hch1"  >
+    Crea una nueva recompesa
+    </h1>
+
+    <p class="mb-1 tl1">
+    <Link to="/createReward" class="linknewrw"><span class="iconAdd"> <IoAddCircleOutline /></span></Link>
+    </p>
+
+  </div>
+
+  <a href="/createReward" class="text-uppercase d-inline-block font-weight-medium lts-2px ml-2 mb-2 text-center styled-link aref"  >
+    
+  </a>
+
+</div>
+          
 
            
-      </ul>
+          </div>
 
 
    
