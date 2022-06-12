@@ -2,7 +2,7 @@ import "./AddNewMember.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import actionCreator from "../../store/actionTypes";
-import { SHOW_POPUP, URL_LOCAL, HIDDEN_POPUP } from "../../store/typesVar.js";
+import { SHOW_POPUP, HIDDEN_POPUP, URL_HEROKU } from "../../store/typesVar.js";
 
 const AddNewMember = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const AddNewMember = () => {
         password: e.target[3].value,
       };
 
-      let registerMember = await fetch(URL_LOCAL + "/member", {
+      let registerMember = await fetch(URL_HEROKU + "/member", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

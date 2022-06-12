@@ -1,6 +1,6 @@
 import "./CreateReward.css";
 import { useNavigate } from "react-router-dom";
-import { SHOW_POPUP, URL_LOCAL, HIDDEN_POPUP } from "../../store/typesVar.js";
+import { SHOW_POPUP, URL_HEROKU, HIDDEN_POPUP } from "../../store/typesVar.js";
 import actionCreator from "../../store/actionTypes";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -22,7 +22,7 @@ const CreateReward = () => {
         familyName: sessionStorage.getItem("familyName")
       };
       if(id===undefined){
-        let postReward = await fetch(URL_LOCAL + "/reward", {
+        let postReward = await fetch(URL_HEROKU + "/reward", {
           method: "POST",
           body: JSON.stringify(formData),
           headers: {
@@ -43,7 +43,7 @@ const CreateReward = () => {
           alert("reward creation failed:" + rewardData.data);
         }
       }else{
-        let postReward = await fetch(URL_LOCAL + "/reward/" + id, {
+        let postReward = await fetch(URL_HEROKU + "/reward/" + id, {
           method: "PATCH",
           body: JSON.stringify(formData),
           headers: {
@@ -79,7 +79,7 @@ const CreateReward = () => {
   const buttonHandlerDelete = async () => {
     try {
      
-      const results = await fetch(URL_LOCAL + "/reward/" + id, {
+      const results = await fetch(URL_HEROKU + "/reward/" + id, {
         method: "delete",
         headers: {
           "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const CreateReward = () => {
  
 
   const getReward = async (idReward) => {
-    const results = await fetch(URL_LOCAL + "/reward/id/" + idReward, {
+    const results = await fetch(URL_HEROKU + "/reward/id/" + idReward, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -3,7 +3,7 @@ import ChallengeCard from "../../components/ChallengeCard/ChallengeCard";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { URL_LOCAL } from "../../store/typesVar";
+import { URL_HEROKU } from "../../store/typesVar";
 import { Link } from "react-router-dom";
 const ListChallengers = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const ListChallengers = () => {
   const [listChallenges, setListChallenges] = useState([]);
 
   const challengeList = async () => {
-    const results = await fetch(URL_LOCAL + "/challenge/familyName/" + sessionStorage.getItem("familyName"), {
+    const results = await fetch(URL_HEROKU + "/challenge/familyName/" + sessionStorage.getItem("familyName"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

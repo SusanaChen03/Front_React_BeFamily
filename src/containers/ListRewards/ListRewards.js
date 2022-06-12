@@ -1,6 +1,6 @@
 import "./ListRewards.css";
 import { useEffect, useState } from "react";
-import { URL_LOCAL } from "../../store/typesVar.js";
+import { URL_HEROKU } from "../../store/typesVar.js";
 import RewardCard from "../../components/RewardCard/RewardCard";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ const ListRewards = () => {
   const [listReward, setListReward] = useState([]);
 
   const rewardList = async () => {
-    const results = await fetch(URL_LOCAL + "/reward/" + sessionStorage.getItem("familyName"), {
+    const results = await fetch(URL_HEROKU + "/reward/" + sessionStorage.getItem("familyName"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

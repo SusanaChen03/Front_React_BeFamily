@@ -1,5 +1,5 @@
 import "./Login.css";
-import {SHOW_POPUP,URL_LOCAL,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
+import {SHOW_POPUP,URL_HEROKU,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionCreator from "../../store/actionTypes.js";
@@ -16,7 +16,7 @@ const Login = () => {
         password: e.target[1].value,
       };
 
-      let loginUser = await fetch(URL_LOCAL + "/login", {
+      let loginUser = await fetch(URL_HEROKU + "/login", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

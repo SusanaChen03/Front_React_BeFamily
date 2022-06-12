@@ -1,7 +1,7 @@
 import "./Profile.css";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import { URL_LOCAL } from "../../store/typesVar";
+import { URL_HEROKU } from "../../store/typesVar";
 import { useEffect, useState } from "react";
 import DetailProfile from "../../components/DetailProfile/DetailProfile";
 import DetailMember from "../../components/DetailMember/DetailMember";
@@ -11,7 +11,7 @@ const Profile = () => {
   const [profileUser, setProfileUser] = useState([]);
 
   const getUser = async () => {
-    const results = await fetch(URL_LOCAL + "/profile", {
+    const results = await fetch(URL_HEROKU + "/profile", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

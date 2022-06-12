@@ -2,7 +2,7 @@ import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionCreator from "../../store/actionTypes.js";
-import {SHOW_POPUP,URL_LOCAL,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
+import {SHOW_POPUP,URL_HEROKU,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
 
 const Register = () => {
 
@@ -19,7 +19,7 @@ const Register = () => {
         email: e.target[3].value,
         password: e.target[4].value,
       };
-      let registerUser = await fetch(URL_LOCAL + "/register", {
+      let registerUser = await fetch(URL_HEROKU + "/register", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

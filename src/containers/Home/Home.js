@@ -1,7 +1,7 @@
 import './Home.css';
 import MiniCardChallenger from '../../components/MiniCardChallenger/MiniCardChallenger';
 import { useEffect, useState } from 'react';
-import { SHOW_POPUP, URL_LOCAL, HIDDEN_POPUP } from "../../store/typesVar.js";
+import { SHOW_POPUP, URL_HEROKU, HIDDEN_POPUP } from "../../store/typesVar.js";
 
 const Home = () =>{
 
@@ -9,7 +9,7 @@ const Home = () =>{
 
     const cardList = async () =>{
      
-        const cardsResult = await fetch(URL_LOCAL + "/challenge/familyName/" + sessionStorage.getItem("familyName"), {
+        const cardsResult = await fetch(URL_HEROKU + "/challenge/familyName/" + sessionStorage.getItem("familyName"), {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

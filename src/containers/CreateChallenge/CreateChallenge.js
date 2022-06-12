@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import UserLabel from "../../components/UserLabel/UserLabel";
 import { useEffect, useState } from "react";
-import { URL_LOCAL } from "../../store/typesVar";
+import { URL_HEROKU } from "../../store/typesVar";
 import RewardLabel from "../../components/RewardLabel/RewardLabel";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ const CreateChallenge = () => {
   const [listUser, setListUser] = useState([]);
 
   const userList = async () => {
-    const results = await fetch(URL_LOCAL + "/members/" + sessionStorage.getItem("familyName"), {
+    const results = await fetch(URL_HEROKU + "/members/" + sessionStorage.getItem("familyName"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const CreateChallenge = () => {
     setListUser(dataUsers);
   };
   const getChallenge = async (idChallenge) => {
-    const results = await fetch(URL_LOCAL + "/challenge/" + idChallenge, {
+    const results = await fetch(URL_HEROKU + "/challenge/" + idChallenge, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
