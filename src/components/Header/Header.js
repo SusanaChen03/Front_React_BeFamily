@@ -86,19 +86,9 @@ const Header = () => {
             )}
             {logged && (<li class="nav-item"><Link to="listRewards"><a class="nav-link active" aria-current="page"> Recompensas </a></Link></li>
             )}
-            {logged && (
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ajustes</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <Link to="/profile" className="dropdown-item pa">Mi Perfil</Link>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                </ul>
-            </li>
+             {logged && (<li class="nav-item"><Link to="profile"><a class="nav-link active" aria-current="page"> Mi Perfil </a></Link></li>
             )}
+            
           </ul>
           <div className="headerButtons">
           {logged && (
