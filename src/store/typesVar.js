@@ -1,5 +1,5 @@
 const URL_LOCAL = "http://localhost:8000/api";
-const URL_HEROKU = "http://localhost:8000/api";
+const URL_HEROKU = "https://befamily-backend.herokuapp.com/api";
 const USER_LOGGED = "USER_LOGGED";
 const USER_LOGOUT = "USER_LOGOUT";
 const SHOW_POPUP = "SHOW_POPUP";
