@@ -59,7 +59,7 @@ const Profile = () => {
 
       {<DetailProfile user={profileUser} />}
 
-      <div className="updateButton">
+      <div className="updateButton hide">
         <button type="button" class="btn btn-warning update">
           Modificar Datos
         </button>
