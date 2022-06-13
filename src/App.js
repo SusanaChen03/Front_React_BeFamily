@@ -1,7 +1,7 @@
 import "./App.css";
 import "./css/bootstrap.min.css";
  
-import "bootstrap/dist/js/bootstrap"
+import boots from "bootstrap/dist/js/bootstrap"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Onboarding from "./components/Onboarding/Onboarding";
