@@ -1,6 +1,6 @@
 import "./App.css";
 import "./css/bootstrap.min.css";
-import boots from "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js";
+ 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Onboarding from "./components/Onboarding/Onboarding";
