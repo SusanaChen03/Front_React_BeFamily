@@ -18,7 +18,7 @@ const CreateReward = () => {
         name: e.target[0].value,
         image: e.target[1].value,
         description: e.target[2].value,
-        color: e.target[3].value,
+        color: document.getElementById("color").value,
         familyName: sessionStorage.getItem("familyName")
       };
       if(id===undefined){

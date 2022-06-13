@@ -95,7 +95,7 @@ const CreateChallenge = () => {
   const [reward, setReward] = useState([]);
 
   const rewardList = async () => {
-    const resultsReward = await fetch(URL_LOCAL + "/reward/" + sessionStorage.getItem("familyName"), {
+    const resultsReward = await fetch(URL_HEROKU + "/reward/" + sessionStorage.getItem("familyName"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -138,7 +138,7 @@ const CreateChallenge = () => {
 
       if(id===undefined){
         formData.isActive=1;
-        let postChallenge = await fetch(URL_LOCAL +"/challenge", {
+        let postChallenge = await fetch(URL_HEROKU +"/challenge", {
           method: "POST",
           body: JSON.stringify(formData),
           headers: {
@@ -157,7 +157,7 @@ const CreateChallenge = () => {
         
       }else{
         formData.isActive=document.getElementById("isActive").value;
-        let postChallenge = await fetch(URL_LOCAL +"/challenge/"+id, {
+        let postChallenge = await fetch(URL_HEROKU +"/challenge/"+id, {
           method: "PATCH",
           body: JSON.stringify(formData),
           headers: {
@@ -185,7 +185,7 @@ const CreateChallenge = () => {
   const buttonHandlerDelete = async () => {
     try {
      
-      const results = await fetch(URL_LOCAL + "/challenge/" + id, {
+      const results = await fetch(URL_HEROKU + "/challenge/" + id, {
         method: "delete",
         headers: {
           "Content-Type": "application/json",

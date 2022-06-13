@@ -33,7 +33,7 @@ const Profile = () => {
 
   const getmembers = async () => {
     const results = await fetch(
-      URL_LOCAL + "/members/" + sessionStorage.getItem("familyName"),
+      URL_HEROKU + "/members/" + sessionStorage.getItem("familyName"),
       {
         method: "GET",
         headers: {
