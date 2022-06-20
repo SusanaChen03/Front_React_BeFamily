@@ -10,15 +10,29 @@ label{
     color: #292956;
 }
 
-.sendButton{
-    width: 250px;
-    height: 42px;
-    color: #ffffff;
-    background-color: #0FB8A6;
-}
+
 
 .linkAccount{
     display: flex;
     justify-content: center;
 }
 
+.sendButtoon{
+    width: 210px;
+    height: 42px;
+    color: #ffffff;
+    background-color: #0FB8A6;
+    display: block;
+    width: 320px;
+    height: 35px;
+    margin: auto;
+    padding-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-color: #F2F2F7;
+    font-size: 13px;
+}
+.sendButtoon:hover{
+    background-color: #D75022;;
+}

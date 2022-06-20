@@ -1,3 +1,8 @@
+.contentProfile{
+    height: 150px;
+    margin-top: 30px;
+}
+
 .contentUser{
     display: flex;
     height: 30px;
@@ -14,10 +19,7 @@
     font-weight: normal;
 }
 
-.contentProfile{
-    height: 200px;
-    margin-top: 30px;
-}
-.hide{
+
+/* .hide{
     display:none;
-}
+} */
