@@ -80,7 +80,7 @@ const CreateReward = () => {
     try {
      
       const results = await fetch(URL_HEROKU + "/reward/" + id, {
-        method: "delete",
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + sessionStorage.getItem("token"),
