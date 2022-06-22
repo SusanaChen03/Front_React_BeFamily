@@ -9,7 +9,7 @@ const Loading = () =>{
     const closeLoading = () => {
         dispatch(actionCreator(CLOSE_LOADING));
       };
-      setTimeout(closeLoading, 2000);
+ //     setTimeout(closeLoading, 2000);
     return(
         <div className = 'loadingcss'>
             <img src={loading} className='gifLoading' alt="loading"/>

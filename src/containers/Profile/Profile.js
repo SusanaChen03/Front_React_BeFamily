@@ -1,13 +1,20 @@
 import "./Profile.css";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import { URL_HEROKU } from "../../store/typesVar";
+import { URL_HEROKU, CLOSE_LOADING } from "../../store/typesVar";
 import { useEffect, useState } from "react";
 import DetailProfile from "../../components/DetailProfile/DetailProfile";
 import DetailMember from "../../components/DetailMember/DetailMember";
+import actionCreator from "../../store/actionTypes";
+import { useDispatch } from "react-redux";
+import useLoading from "../../hooks/useLoading";
 
 const Profile = () => {
+
   const navigate = useNavigate();
+  const loading = useLoading();
+  const dispatch = useDispatch();
+
   const [profileUser, setProfileUser] = useState([]);
 
   const getUser = async () => {
@@ -20,9 +27,12 @@ const Profile = () => {
     });
     const dataUser = await results.json();
     setProfileUser(dataUser);
+    dispatch(actionCreator(CLOSE_LOADING));
+
   };
   useEffect(() => {
     try {
+      loading();
       getUser();
     } catch (error) {
       console.log(error);

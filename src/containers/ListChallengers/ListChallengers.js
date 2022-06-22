@@ -3,10 +3,18 @@ import ChallengeCard from "../../components/ChallengeCard/ChallengeCard";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { URL_HEROKU } from "../../store/typesVar";
+import { URL_HEROKU, CLOSE_LOADING } from "../../store/typesVar";
 import { Link } from "react-router-dom";
+import useLoading from "../../hooks/useLoading";
+import { useDispatch } from "react-redux";
+import actionCreator from "../../store/actionTypes";
+
 const ListChallengers = () => {
   const navigate = useNavigate();
+  const loading = useLoading();
+  const dispatch = useDispatch();
+
+
 
   const [listChallenges, setListChallenges] = useState([]);
 
@@ -26,10 +34,12 @@ const ListChallengers = () => {
 
     const dataChallenges = await results.json();
     setListChallenges(dataChallenges);
+    dispatch(actionCreator(CLOSE_LOADING));
   };
 
   useEffect(() => {
     try {
+      loading();
       challengeList();
     } catch (error) {
       console.log(error);

@@ -1,11 +1,18 @@
 import "./ListRewards.css";
 import { useEffect, useState } from "react";
-import { URL_HEROKU } from "../../store/typesVar.js";
+import { URL_HEROKU, CLOSE_LOADING } from "../../store/typesVar.js";
 import RewardCard from "../../components/RewardCard/RewardCard";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import actionCreator from "../../store/actionTypes";
+import { useDispatch } from "react-redux";
+import useLoading from "../../hooks/useLoading";
 
 const ListRewards = () => {
+
+  const loading = useLoading();
+  const dispatch = useDispatch();
+
   const [listReward, setListReward] = useState([]);
 
   const rewardList = async () => {
@@ -22,10 +29,13 @@ const ListRewards = () => {
 
     const dataRewards = await results.json();
     setListReward(dataRewards);
+    dispatch(actionCreator(CLOSE_LOADING));
+
   };
 
   useEffect(() => {
     try {
+      loading();
       rewardList();
     } catch (error) {
       console.log(error);
