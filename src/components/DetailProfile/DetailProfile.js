@@ -15,6 +15,11 @@ const DetailProfile = (objUser) =>{
         </div>
 
         <div className="contentUser">
+          <label className="key">Fecha de nacimiento:</label>
+          <label className="value"> {objUser.user.birthday} </label>
+        </div>
+
+        <div className="contentUser">
           <label className="key">NOMBRE DE LA FAMILIA:</label>
           <label className="value"> {objUser.user.familyName} </label>
         </div>
