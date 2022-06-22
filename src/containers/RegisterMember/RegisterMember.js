@@ -6,7 +6,9 @@ const RegisterMember = () => {
       <div>
         <div className="hello">
           <h1>¡HOLA {} !</h1>
-          <h3  className="registerMember">Registra a los miembros de tu familia</h3>
+          <h3 className="registerMember">
+            Registra a los miembros de tu familia
+          </h3>
         </div>
 
         <form>

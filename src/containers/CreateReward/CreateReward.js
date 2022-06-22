@@ -55,9 +55,7 @@ const CreateReward = () => {
         const rewardData = await postReward.json();
 
         if (rewardData.success === true) {
-          dispatch(
-            actionCreator(SHOW_POPUP, "Se ha modificado la recompensa")
-          );
+          dispatch(actionCreator(SHOW_POPUP, "Se ha modificado la recompensa"));
 
           navigate("/listRewards");
         } else {

@@ -1,18 +1,13 @@
-import {AiFillEdit} from "react-icons/ai";
+import { AiFillEdit } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import './DetailMember.css';
-
+import "./DetailMember.css";
 
 const DetailMember = (objMember) => {
-
   const navigate = useNavigate();
 
-  const buttonHandlerUpdate = () =>{
-   
-    navigate('/addMember/'+ objMember.member.id);
-
-  }
-
+  const buttonHandlerUpdate = () => {
+    navigate("/addMember/" + objMember.member.id);
+  };
 
   return (
     <tr>
@@ -20,7 +15,9 @@ const DetailMember = (objMember) => {
       <td>{objMember.member.name}</td>
       <td>{objMember.member.birthday}</td>
       <td>{objMember.member.email}</td>
-      <td onClick={buttonHandlerUpdate}><span  className="editIcon">{<AiFillEdit/>}</span></td>
+      <td onClick={buttonHandlerUpdate}>
+        <span className="editIcon">{<AiFillEdit />}</span>
+      </td>
     </tr>
   );
 };

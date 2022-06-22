@@ -1,5 +1,10 @@
 import "./Login.css";
-import {SHOW_POPUP,URL_HEROKU,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
+import {
+  SHOW_POPUP,
+  URL_HEROKU,
+  USER_LOGGED,
+  HIDDEN_POPUP,
+} from "../../store/typesVar.js";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionCreator from "../../store/actionTypes.js";
@@ -86,13 +91,26 @@ const Login = () => {
         <h1>BIENVENIDOS!</h1>
 
         <form onSubmit={(e) => formSubmit(e)}>
-          <label className="infoLogin" htmlFor="email">Tu dirección de correo</label>
+          <label className="infoLogin" htmlFor="email">
+            Tu dirección de correo
+          </label>
           <input className="resRegister" type="email" id="email" name="email" />
 
-          <label className="infoLogin" htmlFor="password">Contraseña</label>
-          <input className="resRegister"type="password" id="password" name="password" />
+          <label className="infoLogin" htmlFor="password">
+            Contraseña
+          </label>
+          <input
+            className="resRegister"
+            type="password"
+            id="password"
+            name="password"
+          />
 
-          <input className="resRegister sendButton" type="submit" value="CONTINUAR"/>
+          <input
+            className="resRegister sendButton"
+            type="submit"
+            value="CONTINUAR"
+          />
         </form>
       </div>
     </div>
