@@ -1,0 +1,13 @@
+.editIcon{
+    cursor: pointer;
+    color: #0FB8A6;
+    font-size: 18px;
+}
+
+.editIcon:hover{
+    color:  #D75022;
+}
+
+td{
+    font-size: 14px;
+}
