@@ -93,7 +93,7 @@ const Header = () => {
           <div className="headerButtons">
           {logged && (
             <form class="d-flex" onSubmit={(e) => buttonHandlerSearh(e)}>
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              <input class="form-control me-2 fill" type="search" placeholder="Search" aria-label="Search"/>
               <button class="btn btn-outline-success searchButton" type="submit" >  Search  </button>
             </form>
           )}

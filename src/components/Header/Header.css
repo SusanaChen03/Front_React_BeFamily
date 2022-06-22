@@ -19,10 +19,15 @@
 .searchButton{
     margin-left: 10px;
     margin-right: 10px;
-    color: #0FB8A6;
-    border-color:#0FB8A6;
+    color: #D75022;
+    border-color:#D75022;
     height: 33px;
-    font-size: 12px
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.fill{
+    border-radius: 12px;
 }
 
 .searchButton:hover{
@@ -35,6 +40,7 @@
     border-color: #D75022;
     height: 33px;
     font-size: 12px;
+    border-radius: 12px;
 }
 
 .register:hover{
@@ -47,13 +53,13 @@
 }
 
 .circle {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: #0FB8A6;
     padding-left: 12.5px;
     padding-top: 5px;
     font-weight: normal;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
 }
