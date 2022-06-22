@@ -1,10 +1,6 @@
 import { createStore } from "redux";
-import { USER_LOGGED, SHOW_POPUP, HIDDEN_POPUP, USER_LOGOUT} from "./typesVar.js";
+import { USER_LOGGED, SHOW_POPUP, HIDDEN_POPUP, USER_LOGOUT, SHOW_LOADING, CLOSE_LOADING} from "./typesVar.js";
 
-
-import {
-
-} from './typesVar.js';
 
 
 const initialState = {
@@ -14,7 +10,6 @@ const initialState = {
     token: null,
     id: 0,
     name: ""
-
 };
 
 
@@ -39,7 +34,7 @@ const reducer = (state = initialState, action) => {
     if (action.type === SHOW_POPUP) {
         return {
           ...state,
-          popup: { visibility: true, text: action.payload }
+          popup: {visibility:true, text: action.payload }
         };
       }
 
@@ -48,6 +43,20 @@ const reducer = (state = initialState, action) => {
           ...state,
           popup: { visibility: false }
         };
+    }
+
+    if (action.type === SHOW_LOADING) {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
+    if(action.type === CLOSE_LOADING){
+      return {
+        ...state,
+        loading: false,
+      }
     }
 
     return state;

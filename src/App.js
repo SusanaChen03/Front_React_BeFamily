@@ -1,9 +1,9 @@
 import "./App.css";
 import "./css/bootstrap.min.css";
- 
- 
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import Onboarding from "./components/Onboarding/Onboarding";
 import Register from "./containers/Register/Register";
 import Header from "./components/Header/Header";
@@ -17,9 +17,14 @@ import ListRewards from "./containers/ListRewards/ListRewards";
 import CreateReward from "./containers/CreateReward/CreateReward";
 import Home from "./containers/Home/Home";
 import ProtectedRoute from "./Midleware/ProtectedRoute";
+import PopUp from "./components/PopUp/PopUp";
+import Loading from "./components/Loading/Loading";
+
 function App() {
 
   const [logged, setLogged] = useState(false);
+  const popupState = useSelector((state) => state.popup); 
+  const loading = useSelector(state => state.loading)
 
   return (
     <div className="app">
@@ -40,6 +45,8 @@ function App() {
           <Route path="/addMember"element={<ProtectedRoute isLoggedIn={logged}><AddNewMember /></ProtectedRoute>}/>
           <Route path="/addMember/:id"element={<ProtectedRoute isLoggedIn={logged}><AddNewMember /></ProtectedRoute>}/>
         </Routes>
+        {loading && <Loading />} 
+        {popupState.visibility && <PopUp />}
       </BrowserRouter>
     </div>
   );
