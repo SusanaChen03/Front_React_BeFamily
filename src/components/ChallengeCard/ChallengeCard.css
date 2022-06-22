@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lora|Roboto:400,500);
- 
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
  
  .text-light-black {
    color: rgba(0,0,0,0.6);
@@ -26,11 +26,11 @@
   text-transform: uppercase;
 }
 .ff-serif {
-  font-family: 'Lora', serif;
+  font-family: 'Sora';
 }
 
 .font-weight-normal {
-  font-weight: normal;
+  font-size: 15px;
 }
 .font-weight-medium {
   font-weight: 500;
@@ -74,16 +74,9 @@
   position: absolute
 }
 
-
-
 .bg-white {
   background-color: #fff;
 }
-
-
-
-
-
 
 .small {
   font-size: 0.75rem;
@@ -94,13 +87,13 @@
 .styled-link {
   text-decoration: none;
   outline: none;
-  color: #2196fe;
+  color: #0FB8A6;
   transition: all 0.25s ease-in; 
 }
 .styled-link:hover,
 .styled-link:focus,
 .styled-link:active {
-  color: #536dfe;
+  color: #0FB8A6;
 }
 .shadow-1 {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.15);
@@ -112,11 +105,8 @@
 .blue-hover:hover {
   transform: translateY(-5px);
   border: none;
-  border-bottom: 5px solid #2196fe;
+  border-bottom: 5px solid#0FB8A6;
 }
-
-
-
 
 .clearfix::before,
 .clearfix::after {
@@ -130,11 +120,6 @@
 .float-right{
   float: right;
 }
-
-
-
-
-
 
 /**Margin and padding utilities*/
 .mx-auto {

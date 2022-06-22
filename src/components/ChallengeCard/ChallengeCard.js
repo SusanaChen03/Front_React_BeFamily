@@ -21,12 +21,13 @@ const ChallengeCard = (challenge) => {
       Reto
     </p>
 
-    <h1 class="ff-serif font-weight-normal text-black card-heading mt-0 mb-1 hch1"  >
-    {challenge.challenges.reward}
+    <h1 class="ff-serif font-weight-normal text-black card-heading mt-0 mb-1 hch1">
+    {challenge.challenges.name}
     </h1>
 
     <p class="mb-1 tl1">
-    {challenge.challenges.name}
+    Recompensa: <br/>
+    {challenge.challenges.reward}
     </p>
 
   </div>
