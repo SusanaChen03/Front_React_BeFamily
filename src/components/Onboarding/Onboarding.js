@@ -17,11 +17,7 @@ const Onboarding = () => {
       <div className="container">
         <div className="left">
           <img src={logo} className="appLogo" alt="logo" />
-          <p className="p1">Colabora en familia</p> <br />
-          <p className="p2">Mejora en familia</p> <br />
-          <p className="p3">Crece en familia</p>
         </div>
-
         <div class="right">
           <p class="p4">
             !Nadie conoce a los tuyos mejor que tú! <br />
@@ -58,7 +54,7 @@ const Onboarding = () => {
         <input
           className="discover"
           type="button"
-          value="Descúbrelo"
+          value="DESCÚBRELO"
           onClick={buttonHandler}
         />
       </div>
