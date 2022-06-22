@@ -3,11 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionCreator from "../../store/actionTypes.js";
 import {SHOW_POPUP,URL_HEROKU,USER_LOGGED, HIDDEN_POPUP} from "../../store/typesVar.js";
+import useLoading from "../../hooks/useLoading";
+import usePopup from "../../hooks/usePopup";
+
 
 const Register = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const popUp = usePopup();
+  const loading = useLoading();
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +41,9 @@ const Register = () => {
         sessionStorage.setItem("familyName", data.user.familyName);
         sessionStorage.setItem("logged", true);
 
+        popUp("Se ha registrado correctamente");
+        loading(); 
+
         if (sessionStorage.getItem("rol") === "admin") {
           dispatch(
             actionCreator(USER_LOGGED, {
@@ -45,16 +53,9 @@ const Register = () => {
               role: data.user.role,
             })
           );
-          dispatch(
-            actionCreator(
-              SHOW_POPUP,
-              "Se a iniciado correctamente. Bienvenid@ Admin"
-            )
-          );
+          popUp("Administrador logeado correctamente")
+          setTimeout(() => navigate("/home"), 3500);
 
-          setTimeout(() => dispatch(actionCreator(HIDDEN_POPUP)), 2000);
-
-          navigate("/home");
         } else {
           dispatch(
             actionCreator(USER_LOGGED, {
@@ -90,7 +91,8 @@ const Register = () => {
     }
   };
 
-  const buttonHandler = () => {
+
+  const buttonHaveAccount = () => {
     navigate('/login')
   };
 
@@ -99,8 +101,8 @@ const Register = () => {
       <div className="welcome">
         <h1>REGÍSTRATE Y EMPIEZA LA AVENTURA</h1>
       </div>
-      <form  className="form1" onSubmit={(e) => formSubmit(e)}>
-        <label htmlFor="familyName">
+      <form  className="form1 " onSubmit={(e) => formSubmit(e)}>
+        <label htmlFor="familyName" className="infoRegister" >
           Destaca tu familia! Poneos un nombre chulo
         </label>
         <input className="resRegister"  type="text" id="familyName" name="familyName" />
@@ -112,7 +114,7 @@ const Register = () => {
         <input className="resRegister" type="date" id="birthday" name="birthday" />
 
         <label className="infoRegister" htmlFor="email">Tu dirección de correo preferida</label>
-        <input className="resRegister" type="email" id="email" name="email" />
+        <input className="resRegister" type="email" id="email" name="email" placeholder="ejemplo@familia.es"/>
 
         <label className="infoRegister" htmlFor="password">Contraseña</label>
         <input className="resRegister" type="password" id="password" name="password" />
@@ -120,7 +122,7 @@ const Register = () => {
         <input className="resRegister sendButton" type="submit" value="CONTINUAR" />
 
         <div className="linkAccount">
-          <a className="haveAccount" onClick={buttonHandler}>Ya tengo cuenta</a>
+          <a className="haveAccount" onClick={buttonHaveAccount}>Ya tengo cuenta</a>
         </div>
       </form>
     </div>
