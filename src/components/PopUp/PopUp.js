@@ -12,6 +12,7 @@ const PopUp = () => {
   const closePopUp = () => {
     dispatch(actionCreator(HIDDEN_POPUP));
   };
+   setTimeout(closePopUp, 3500);
 
   return (
     <div>
