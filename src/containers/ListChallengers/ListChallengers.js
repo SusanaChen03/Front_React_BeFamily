@@ -11,13 +11,18 @@ const ListChallengers = () => {
   const [listChallenges, setListChallenges] = useState([]);
 
   const challengeList = async () => {
-    const results = await fetch(URL_HEROKU + "/challenge/familyName/" + sessionStorage.getItem("familyName"), {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + sessionStorage.getItem("token"),
-      },
-    });
+    const results = await fetch(
+      URL_HEROKU +
+        "/challenge/familyName/" +
+        sessionStorage.getItem("familyName"),
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + sessionStorage.getItem("token"),
+        },
+      }
+    );
 
     const dataChallenges = await results.json();
     setListChallenges(dataChallenges);
@@ -43,32 +48,37 @@ const ListChallengers = () => {
         {listChallenges.map((challenges) => {
           return <ChallengeCard challenges={challenges} />;
         })}
-   
-        <div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover cardcontainerCh"  >
-              <img src="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/casa-voladora-up.jpg"  
-                  class="d-block w-full imgch" />
 
-        <div class="px-2 py-2 hp">
-          <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
-            Retos
-          </p>
+        <div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover cardcontainerCh">
+          <img
+            src="https://esment.org/blogs/wp-content/uploads/2020/03/reto.jpg"
+            class="d-block w-full imgch"
+          />
 
-          <h1 class="ff-serif font-weight-normal text-black card-heading mt-0 mb-1 hch1"  >
-          Crea un nuevo reto
-          </h1>
+          <div class="px-2 py-2 hp">
+            <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
+              Retos
+            </p>
 
-          <p class="mb-1 tl1">
-          <Link to="/createChallenge" class="linknewrw"><span class="iconAdd"> <IoAddCircleOutline /></span></Link>
-          </p>
+            <h1 class="ff-serif font-weight-normal text-black card-heading mt-0 mb-1 hch1">
+              Crea un nuevo reto
+            </h1>
 
+            <p class="mb-1 tl1">
+              <Link to="/createChallenge" class="linknewrw">
+                <span class="iconAdd">
+                  {" "}
+                  <IoAddCircleOutline />
+                </span>
+              </Link>
+            </p>
+          </div>
+
+          <a
+            href="/createChallenge"
+            class="text-uppercase d-inline-block font-weight-medium lts-2px ml-2 mb-2 text-center styled-link aref"
+          ></a>
         </div>
-
-        <a href="/createChallenge" class="text-uppercase d-inline-block font-weight-medium lts-2px ml-2 mb-2 text-center styled-link aref"  >
-          
-        </a>
-
-      </div>
-     
       </div>
     </div>
   );
