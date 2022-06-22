@@ -1,17 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
+import actionCreator from "../../store/actionTypes";
+import { HIDDEN_POPUP } from "../../store/typesVar";
+
 import "./PopUp.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const PopUp = () => {
+  const dispatch = useDispatch();
+
   const popupState = useSelector((state) => state.popup);
+
+  const closePopUp = () => {
+    dispatch(actionCreator(HIDDEN_POPUP));
+  };
 
   return (
     <div>
-      {popupState.visibilidad && (
-        <div class="popup">
-          <p>{popupState.texto}</p>
-        </div>
-      )}
+      <div className="popup">
+        <p>{popupState.text}</p>
+      </div>
     </div>
   );
 };
