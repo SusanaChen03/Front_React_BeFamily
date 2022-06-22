@@ -14,12 +14,15 @@
 
 .rewardName{
     font-size: 12px;
+    margin-top: 6px;
 }
+
 .selectedReward{
     border-color:#D75022;    ;
     border-width: 3px;
     border-style: solid;
 }
+
 .rewardsel{
     cursor: pointer;
 }

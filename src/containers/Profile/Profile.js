@@ -59,11 +59,11 @@ const Profile = () => {
 
       {<DetailProfile user={profileUser} />}
 
-      <div className="updateButton hide">
+      {/* <div className="updateButton hide">
         <button type="button" class="btn btn-warning update">
           Modificar Datos
         </button>
-      </div>
+      </div> */}
 
       <div className="profileData2">
         <h3 className="titleFamliy">
@@ -82,12 +82,13 @@ const Profile = () => {
               <th scope="col">Nombre</th>
               <th scope="col">Fecha Nac.</th>
               <th scope="col">Email</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
-          {members.map((member) => {
-                  return <DetailMember member={member} />;
-                })}
+            {members.map((member) => {
+              return <DetailMember member={member} />;
+            })}
           </tbody>
         </table>
       </div>

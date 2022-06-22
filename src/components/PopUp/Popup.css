@@ -2,10 +2,10 @@
   position: fixed;
   box-sizing: border-box;
   top: 7em;
-  right: 2em;
+  right: 6em;
   z-index: 99;
   transition: transform 0.6s ease-in-out;
-  animation: banner-in-right 0.7s;
+  animation: banner-in-left 0.7s;
   background-color: white;
   border-radius: 1em;
   border: 2px solid  #0FB8A6;
@@ -20,11 +20,12 @@
 .popup:hover {
   box-shadow: 0 0 12px #fff;
 }
-@keyframes banner-in-right {
+
+@keyframes banner-in-left {
   from {
-    transform: translateX(100%);
+    transform: translateY(100%);
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }

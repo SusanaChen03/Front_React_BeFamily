@@ -4,7 +4,8 @@
 
 .labelCh{
     margin-top: 50px;
-    font-weight: bold;
+    font-size: 13px;
+    color:#0FB8A6;
 }
 
 .repeat{
@@ -59,6 +60,7 @@
     border-color: #F2F2F7;
     font-size: 13px;
 }
+
 .ColorActive{
     display: flex;
     flex-direction: row;
@@ -67,19 +69,36 @@
     margin-left: 73px;
     margin-top: 33px;
 }
+
 .operation{
     margin-left: 35%;
     width: 50%;
 }
+
 .btnSave{
     float:left;
     margin-right: 40px;;
 }
+
 .btnDelete{
     float:left;
     margin-right: 40px;;
 }
+
 .containerCH{
     margin-bottom: 30px;
+}
+
+.deleteButton{
+    border-color:#0FB8A6;
+    background-color: white;
+    color:#0FB8A6;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.deleteButton:hover{
+    background-color: #0FB8A6;
+    color: white;
 
 }
