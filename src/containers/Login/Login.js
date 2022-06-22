@@ -51,7 +51,7 @@ const Login = () => {
           dispatch(
             actionCreator(
               SHOW_POPUP,
-              "Se a iniciado correctamente. Bienvenid@ Admin"
+              "Bienveni@ de nuevo"
             )
           );
 
